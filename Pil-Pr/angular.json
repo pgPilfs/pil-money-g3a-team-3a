@@ -27,11 +27,18 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
               
+=======
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/styles.css"
+>>>>>>> 9dc28eb3ecc1af59b07e2b265bb7133e8acf12c2
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
