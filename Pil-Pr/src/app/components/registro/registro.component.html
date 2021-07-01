@@ -1,0 +1,95 @@
+<section class="h-100-vh mb-8">
+    <div class="page-header align-items-start section-height-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('../assets/img/curved-images/curved14.jpg');">
+      <span class="mask bg-gradient-dark opacity-6"></span>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5 text-center mx-auto">
+            <h1 class="text-white mb-2 mt-5">Bienvenidos</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row mt-lg-n10 mt-md-n11 mt-n10">
+        <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+          <div class="card z-index-0">
+            <div class="card-header text-center pt-4">
+              <h5>Registro</h5>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="formulario" (ngSubmit)="onSubmit()" role="form text-left">
+                <div class="form-group mb-3">
+                  <input type="text" class="form-control" formControlName="firstName" placeholder="Nombre" 
+                  aria-label="Name" aria-describedby="email-addon" required 
+                  [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                  
+                  <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstName.errors.required">El nombre es requerido</div>
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <input type="text" class="form-control" formControlName="lastName" placeholder="Apellido" 
+                  aria-label="Name" aria-describedby="email-addon" required autocomplete="off"
+                  [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+
+                  <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                    <div *ngIf="f.lastName.errors.required">El apellido es requerido</div>
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <input type="text" class="form-control" formControlName="dni" placeholder="DNI" 
+                  aria-label="Name" aria-describedby="email-addon" required autocomplete="off"
+                  [ngClass]="{ 'is-invalid': submitted && f.dni.errors }">
+
+                  <div *ngIf="submitted && f.dni.errors" class="invalid-feedback">
+                    <div *ngIf="f.dni.errors.required">El DNI es requerido</div>
+                    <div *ngIf="f.dni.errors?.pattern">El DNI debe tener 8 caracteres</div>
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <input type="email" class="form-control" formControlName="mail" placeholder="Email" 
+                  aria-label="Email" aria-describedby="email-addon" required
+                  [ngClass]="{ 'is-invalid': submitted && f.mail.errors }">
+
+                  <div *ngIf="submitted && f.mail.errors" class="invalid-feedback">
+                    <div *ngIf="f.mail.errors.required">El correo es requerido</div>
+                    <div *ngIf="f.mail.errors?.email">El correo tiene que tener el formato adecuado</div>
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <input type="text" class="form-control" formControlName="username" placeholder="Nombre de usuario" 
+                  aria-label="Name" aria-describedby="email-addon" required
+                  [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+
+                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">El nombre de usuario es requerido</div>
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" 
+                  aria-label="Password" aria-describedby="password-addon" required
+                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">La contraseña es requerida</div>
+                    <div *ngIf="f.password.errors.minlength">La contraseña debe tener al menos 8 caracteres</div>
+                  </div>
+                </div>
+                <div class="form-check form-check-info text-left">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                  <label class="form-check-label" for="flexCheckDefault">
+                  Estoy de acuerdo el <a href="javascript:;" class="text-dark font-weight-bolder">Términos y condiciones</a>
+                  </label>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Registrar</button>
+                </div>
+                <p class="text-sm mt-3 mb-0">¿Ya tienes una cuenta?
+                  <a href="/login" class="text-dark font-weight-bolder">Inicio Sesión</a></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
