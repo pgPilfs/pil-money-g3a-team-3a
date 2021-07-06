@@ -1,30 +1,40 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
+
 <head>
   <meta charset="utf-8">
-  <title>Pil Money</title>
+  <title>App Money</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css">
-   <!-- icheck bootstrap -->
-   <link rel="stylesheet" href="../assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.2" rel="stylesheet" />
 </head>
+
 <body>
   <app-root></app-root>
-<!-- jQuery -->
-<script src="../assets/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../assets/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../assets/dist/js/demo.js"></script>
-
+  <!--   Core JS Files   -->
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap.min.js"></script>
+  <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+   <script src="assets/js/soft-ui-dashboard.min.js?v=1.0.2"></script>
 </body>
+
 </html>

@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './administracion/dashboard/dashboard.component';
-import { LoginComponent } from './administracion/login/login.component';
-import { RegistroComponent } from './administracion/registro/registro.component';
+import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path:"",component:LoginComponent, pathMatch:"full"},
-  {path:"registro",component:RegistroComponent, pathMatch:"full"},
-  {path:"dashboard",component:DashboardComponent, pathMatch:"full"}
+  {path:"",component:DashboardComponent, pathMatch:"full"}
 ];
 
 @NgModule({
