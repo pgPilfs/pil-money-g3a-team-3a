@@ -9,6 +9,7 @@ import { PiePaginaComponent } from './plantilla-pricipal/pie-pagina/pie-pagina.c
 import { InicioSesionComponent } from './seguridad/inicio-sesion/inicio-sesion.component';
 import { RegistroComponent } from './seguridad/registro/registro.component';
 import { DashboardComponent } from './vistas/dashboard/dashboard.component';
+import { BilleteraComponent } from './vistas/billetera/billetera.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashboardComponent } from './vistas/dashboard/dashboard.component';
     PiePaginaComponent,
     InicioSesionComponent,
     RegistroComponent,
-    DashboardComponent
+    DashboardComponent,
+    BilleteraComponent
   ],
   imports: [
     BrowserModule,
