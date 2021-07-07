@@ -76,13 +76,14 @@
                   </div>
                 </div>
                 <div class="form-check form-check-info text-left">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                   <label class="form-check-label" for="flexCheckDefault">
-                  Estoy de acuerdo el <a href="javascript:;" class="text-dark font-weight-bolder">Términos y condiciones</a>
+                  Estoy de acuerdo el <a data-bs-toggle="modal" data-bs-target="#terminosCondiciones" class="text-dark font-weight-bolder">Términos y condiciones</a>
                   </label>
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Registrar</button>
+                  <button type="submit" data-bs-toggle="modal" data-bs-target="#verificacionDoc" 
+                  class="btn bg-gradient-dark w-100 my-4 mb-2" [disabled]="!aceptarTerminos">Registrar</button>
                 </div>
                 <p class="text-sm mt-3 mb-0">¿Ya tienes una cuenta?
                   <a href="/login" class="text-dark font-weight-bolder">Inicio Sesión</a></p>
@@ -93,3 +94,47 @@
       </div>
     </div>
   </section>
+
+  <div class="modal" id="verificacionDoc" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Verificación de Documento</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Ingrese la foto del frente del Documento</label>
+            <input class="form-control" type="file" id="imagen_1" (change)="fileEvent($event)">
+          </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Ingrese la foto de atras del Documento</label>
+            <input class="form-control" type="file" id="imagen_2" (change)="fileEvent2($event)">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="subirArchivos()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal" id="terminosCondiciones" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Terminos y condiciones</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque cumque dolorem maiores veniam aliquid sint pariatur optio repellat aliquam, atque sapiente ipsum! Minus adipisci, molestiae omnis magnam fugiat consequuntur perferendis.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" 
+          (click)="aceparTerminosYCondiciones()">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
