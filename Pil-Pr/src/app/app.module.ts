@@ -1,30 +1,31 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuLateralComponent } from './plantilla-pricipal/menu-lateral/menu-lateral.component';
-import { BarraNavegacionComponent } from './plantilla-pricipal/barra-navegacion/barra-navegacion.component';
-import { PiePaginaComponent } from './plantilla-pricipal/pie-pagina/pie-pagina.component';
-import { InicioSesionComponent } from './seguridad/inicio-sesion/inicio-sesion.component';
-import { RegistroComponent } from './seguridad/registro/registro.component';
-import { DashboardComponent } from './vistas/dashboard/dashboard.component';
-import { BilleteraComponent } from './vistas/billetera/billetera.component';
+import { RegistroComponent } from './components/views/registro/registro.component';
+import { LoginComponent } from './components/views/login/login.component';
+import { DashboardComponent } from './components/views/dashboard/dashboard.component';
+import { MenuComponent } from './components/Template/menu/menu.component';
+import { MenuLateralComponent } from './components/Template/menu-lateral/menu-lateral.component';
+import { PiePaginaComponent } from './components/Template/pie-pagina/pie-pagina.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuLateralComponent,
-    BarraNavegacionComponent,
-    PiePaginaComponent,
-    InicioSesionComponent,
     RegistroComponent,
+    LoginComponent,
     DashboardComponent,
-    BilleteraComponent
+    MenuComponent,
+    MenuLateralComponent,
+    PiePaginaComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

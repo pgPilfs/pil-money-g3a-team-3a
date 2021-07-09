@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BilleteraComponent } from './vistas/billetera/billetera.component';
-import { DashboardComponent } from './vistas/dashboard/dashboard.component';
-
+import { DashboardComponent } from './components/views/dashboard/dashboard.component';
+import { LoginComponent } from './components/views/login/login.component';
+import { RegistroComponent } from './components/views/registro/registro.component';
 
 const routes: Routes = [
-  {path:"",component:DashboardComponent, pathMatch:"full"},
-  {path:"billetera",component:BilleteraComponent, pathMatch:"full"},
+  {path:"login",component: LoginComponent, pathMatch:"full"},
+  {path:"registro",component: RegistroComponent, pathMatch:"full"},
+  {path:"dashboard",component: DashboardComponent, pathMatch:"full"},
+  {path:"**",redirectTo:"/login", pathMatch:"full"}
 ];
 
 @NgModule({
