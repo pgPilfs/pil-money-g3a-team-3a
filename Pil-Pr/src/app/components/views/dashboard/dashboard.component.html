@@ -1,13 +1,72 @@
+
 <div class="container-scroller">
   <!-- partial:../../partials/_navbar.html -->
   <app-menu></app-menu>
   <!-- partial -->
   <div class="container-fluid page-body-wrapper">
     <!-- partial:../../partials/_sidebar.html -->
-    <app-menu-lateral></app-menu-lateral>
+    <app-menu-lateral></app-menu-lateral>   
     <!-- partial -->
-    <div class="main-panel">
-      <div class="content-wrapper">
+    <div class="main-panel">      
+      <div class="content-wrapper margenes">        
+        <div class="page-header">
+          <h3 class="page-title">
+            <span class="page-title-icon bg-gradient-primary text-white mr-2">
+              <i class="mdi mdi-home"></i>
+            </span>
+            Panel Principal
+          </h3>
+          <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">
+                <span></span>Overview
+                <i
+                  class="
+                    mdi mdi-alert-circle-outline
+                    icon-sm
+                    text-primary
+                    align-middle
+                  "
+                ></i>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="row">
+          <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-danger card-img-holder text-white">
+              <div class="card-body">
+                <img src="assets/dist/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">Cuenta Pesos <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">$ 15,0000</h2>
+                <h6 class="card-text">Sin movimientos Registrados</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-info card-img-holder text-white">
+              <div class="card-body">
+                <img src="assets/dist/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">Cuenta Dolares <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">U$S 45,6334</h2>
+                <h6 class="card-text">1 Movimiento registrado</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-success card-img-holder text-white">
+              <div class="card-body">
+                <img src="../../../../assets/dist/images/dashboard/circle.png" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">Cuenta Criptomonedas<i class="mdi mdi-diamond mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">BIT 2.5 </h2>
+                <h6 class="card-text">Actualmente Minando</h6>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- content-wrapper ends -->
       <!-- partial:../../partials/_footer.html -->
