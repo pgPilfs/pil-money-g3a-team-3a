@@ -1,3 +1,16 @@
 .margenes {
    margin-top: 3.5rem;
 }
+.titulo-card-movimientos {
+   margin-left:23px;
+   margin-top:10px;
+   color:white;
+}
+.ver-mas {
+   text-decoration: none;
+   color: white;
+}
+
+.ver-mas:hover {
+   color: black
+}
