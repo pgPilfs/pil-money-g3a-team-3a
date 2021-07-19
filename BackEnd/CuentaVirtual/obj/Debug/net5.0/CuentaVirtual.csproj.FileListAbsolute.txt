@@ -1,0 +1,157 @@
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/appsettings.Development.json
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/appsettings.json
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/CuentaVirtual.deps.json
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/CuentaVirtual.runtimeconfig.json
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/CuentaVirtual.runtimeconfig.dev.json
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/CuentaVirtual.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/ref/CuentaVirtual.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/CuentaVirtual.pdb
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/CuentaVirtual.csproj.AssemblyReference.cache
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/CuentaVirtual.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/CuentaVirtual.AssemblyInfoInputs.cache
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/CuentaVirtual.AssemblyInfo.cs
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/CuentaVirtual.csproj.CoreCompileInputs.cache
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/CuentaVirtual.MvcApplicationPartsAssemblyInfo.cache
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/staticwebassets/CuentaVirtual.StaticWebAssets.Manifest.cache
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/staticwebassets/CuentaVirtual.StaticWebAssets.xml
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/scopedcss/bundle/CuentaVirtual.styles.css
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/CuentaVirtual.RazorTargetAssemblyInfo.cache
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/CuentaVirtual.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/ref/CuentaVirtual.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/CuentaVirtual.pdb
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/CuentaVirtual.genruntimeconfig.cache
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/AutoMapper.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/BCrypt.Net-Next.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.Data.SqlClient.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.Data.Sqlite.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.DotNet.PlatformAbstractions.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Sqlite.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.Extensions.DependencyModel.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.Identity.Client.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.IdentityModel.Logging.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.IdentityModel.Protocols.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Microsoft.IdentityModel.Tokens.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/Newtonsoft.Json.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/SQLitePCLRaw.batteries_v2.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/SQLitePCLRaw.nativelibrary.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/SQLitePCLRaw.core.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/SQLitePCLRaw.provider.dynamic_cdecl.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/System.Configuration.ConfigurationManager.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/System.Diagnostics.DiagnosticSource.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/System.Runtime.Caching.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/System.Security.Cryptography.ProtectedData.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.pdb
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.pdb
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.pdb
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/alpine-x64/native/libe_sqlite3.so
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/linux-arm/native/libe_sqlite3.so
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/linux-arm64/native/libe_sqlite3.so
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/linux-armel/native/libe_sqlite3.so
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/linux-mips64/native/libe_sqlite3.so
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/linux-x64/native/libe_sqlite3.so
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/linux-x86/native/libe_sqlite3.so
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/osx-x64/native/libe_sqlite3.dylib
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win-arm/native/e_sqlite3.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win-arm64/native/e_sqlite3.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win-x64/native/e_sqlite3.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win-x86/native/e_sqlite3.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/bin/Debug/net5.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/jerea00/Desktop/NetCore/CuentaVirtual/CuentaVirtual/obj/Debug/net5.0/CuentaVirtual.csproj.CopyComplete
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\appsettings.Development.json
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\appsettings.json
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\CuentaVirtual.exe
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\CuentaVirtual.deps.json
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\CuentaVirtual.runtimeconfig.json
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\CuentaVirtual.runtimeconfig.dev.json
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\CuentaVirtual.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\ref\CuentaVirtual.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\CuentaVirtual.pdb
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\AutoMapper.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\BCrypt.Net-Next.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Humanizer.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.Data.Sqlite.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Sqlite.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\Newtonsoft.Json.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\SQLitePCLRaw.batteries_v2.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\SQLitePCLRaw.nativelibrary.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\SQLitePCLRaw.core.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\SQLitePCLRaw.provider.dynamic_cdecl.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\System.Runtime.Caching.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\alpine-x64\native\libe_sqlite3.so
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\linux-arm\native\libe_sqlite3.so
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\linux-arm64\native\libe_sqlite3.so
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\linux-armel\native\libe_sqlite3.so
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\linux-mips64\native\libe_sqlite3.so
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\linux-musl-x64\native\libe_sqlite3.so
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\linux-x64\native\libe_sqlite3.so
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\linux-x86\native\libe_sqlite3.so
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\osx-x64\native\libe_sqlite3.dylib
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win-arm\native\e_sqlite3.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win-arm64\native\e_sqlite3.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win-x64\native\e_sqlite3.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win-x86\native\e_sqlite3.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\CuentaVirtual.csprojAssemblyReference.cache
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\CuentaVirtual.GeneratedMSBuildEditorConfig.editorconfig
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\CuentaVirtual.AssemblyInfoInputs.cache
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\CuentaVirtual.AssemblyInfo.cs
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\CuentaVirtual.csproj.CoreCompileInputs.cache
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\CuentaVirtual.MvcApplicationPartsAssemblyInfo.cache
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\staticwebassets\CuentaVirtual.StaticWebAssets.Manifest.cache
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\staticwebassets\CuentaVirtual.StaticWebAssets.xml
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\scopedcss\bundle\CuentaVirtual.styles.css
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\CuentaVirtual.RazorTargetAssemblyInfo.cache
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\CuentaVirtual.csproj.CopyComplete
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\CuentaVirtual.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\ref\CuentaVirtual.dll
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\CuentaVirtual.pdb
+E:\Angular\CarteraVirtual - PIL\BilleteraVirtual\BackEnd\CuentaVirtual\obj\Debug\net5.0\CuentaVirtual.genruntimeconfig.cache
