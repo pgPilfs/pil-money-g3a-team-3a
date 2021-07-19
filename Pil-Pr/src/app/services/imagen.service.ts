@@ -8,12 +8,13 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ImagenService {
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) { 
+  }
 
   //Servicio con metodos para enviar la imagen al backend
-  uploadFiles(file: Archivo): Observable<any>{
-    var peticion = "api/subir";
-    var file_json = JSON.stringify(file); //Pasamos a formato JSON el archivo
-    return this.http.post(`${environment.apiUrl} + peticion`, file_json)
+  uploadFiles(id: string, file: any): Observable<any>{
+    //var file_json = JSON.stringify(file); //Pasamos a formato JSON el archivo
+    return this.http.put(`${environment.apiUrl}/users/img/${id}`,file);
   }
 }

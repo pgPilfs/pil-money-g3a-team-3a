@@ -1,0 +1,10 @@
+.menu-principal{
+    margin-right: 300px;
+}
+
+@media (max-width: 720px) {
+    .menu-principal{
+        display: block;
+        margin-right: 0px;
+    }
+}

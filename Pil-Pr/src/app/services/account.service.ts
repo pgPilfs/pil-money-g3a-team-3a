@@ -20,8 +20,7 @@ export class AccountService {
     private http: HttpClient
   ) {
     /*
-    Al iniciar sesion correctamente, el User devuelto se almacena en el almacenamiento local del navegador
-    para permanecer conectado 
+    Toma una instancia del usuario en cache del navegador
     */
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')!));
       
