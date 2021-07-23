@@ -10,6 +10,10 @@
    text-decoration: none;
    color: white;
 }
+.pagar {
+   text-decoration: none;
+   color: rgb(45, 17, 121);
+}
 
 .ver-mas:hover {
    color: black
