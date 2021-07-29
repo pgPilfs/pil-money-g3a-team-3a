@@ -11705,8 +11705,8 @@ code {
 
 /* gradient buttons */
 .btn-gradient-primary {
-  background: -webkit-gradient(linear, left top, right top, from(#da8cff), to(#9a55ff));
-  background: linear-gradient(to right, #da8cff, #9a55ff);
+  background: -webkit-gradient(linear, left top, right top, from(#5F4F9C), to(#5EC1CE));
+  background: linear-gradient(to right, #5F4F9C, #5EC1CE);
   border: 0;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease; }
@@ -11715,7 +11715,7 @@ code {
     background: -webkit-gradient(linear, left top, right top, from(#da8cff), to(#9a55ff));
     background: linear-gradient(to right, #da8cff, #9a55ff); }
   .btn-gradient-primary:hover {
-    opacity: .8; }
+    opacity: .6; }
   .btn-gradient-primary:not(.btn-gradient-light) {
     color: #ffffff; }
     .btn-gradient-primary:not(.btn-gradient-light):hover, .btn-gradient-primary:not(.btn-gradient-light):focus, .btn-gradient-primary:not(.btn-gradient-light):active {
@@ -12835,7 +12835,9 @@ dl {
 .auth .brand-logo {
   margin-bottom: 2rem; }
   .auth .brand-logo img {
-    width: 150px; }
+    width: 150px;
+    margin-left: auto;  
+  }
 
 .auth form .form-group {
   margin-bottom: 1.5rem; }
@@ -12888,16 +12890,17 @@ dl {
       .navbar .navbar-brand-wrapper .navbar-brand img {
         width: calc(260px - 120px);
         max-width: 100%;
-        height: 28px;
+        height: 38px;
         margin: auto;
         vertical-align: middle; }
       .navbar .navbar-brand-wrapper .navbar-brand.brand-logo-mini {
         display: none; }
         .navbar .navbar-brand-wrapper .navbar-brand.brand-logo-mini img {
-          width: calc(70px - 50px);
+          width: calc(80px - 50px);
           max-width: 100%;
           height: 28px;
-          margin: auto; }
+          margin: auto; 
+        }
   .navbar .navbar-menu-wrapper {
     transition: width 0.25s ease;
     -webkit-transition: width 0.25s ease;
