@@ -69,11 +69,12 @@
               </div>
               <div class="mb-4">
                 <div class="form-check">
-                  <label class="form-check-label text-muted">
-                    <input id="checked" type="checkbox" class="form-check-input" 
-                    [ngClass]="{ 'is-invalid': submitted && !aceptarTerminos }">Estoy de acuerdo con los 
-                  </label>
-                  <a data-bs-toggle="modal" data-bs-target="#terminosCondiciones" class="text-dark font-weight-bolder">Términos y condiciones</a>
+                  
+                    <input id="checked" type="checkbox" class="form-check-input "  
+                    [ngClass]="{ 'is-invalid': submitted && !aceptarTerminos }">
+                    <label class="form-check-label text-muted">
+                    Estoy de acuerdo con los </label>
+                  <a data-bs-toggle="modal" data-bs-target="#terminosCondiciones" class="text-dark font-weight-bolder" type="button">Términos y condiciones</a>
                   <div *ngIf="submitted && !aceptarTerminos" class="is-invalid" style="color: red;">Debe aceptar los terminos y condiciones</div>
                 </div>
               </div>
