@@ -14,7 +14,7 @@ export class RegistroComponent implements OnInit {
   formulario : FormGroup;
   loading = false;
   submitted = false;
-  aceptarTerminos: any;
+  aceptarTerminos = false
 
   constructor(
     private fb: FormBuilder,

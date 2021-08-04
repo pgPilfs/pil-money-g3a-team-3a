@@ -74,11 +74,7 @@
                     [ngClass]="{ 'is-invalid': submitted && !aceptarTerminos }">Estoy de acuerdo con los 
                   </label>
                   <a data-bs-toggle="modal" data-bs-target="#terminosCondiciones" class="text-dark font-weight-bolder">Términos y condiciones</a>
-
-                  <!-- No esta funcionando la alerta de que falta el aceptar terminos y condiciones 
-                    <div *ngIf="submitted && !aceptarTerminos" class="invalid-feedback">
-                    <div *ngIf="!aceptarTerminos">Debe aceptar los terminos y condiciones</div>
-                  </div> -->
+                  <div *ngIf="submitted && !aceptarTerminos" class="is-invalid" style="color: red;">Debe aceptar los terminos y condiciones</div>
                 </div>
               </div>
               <div class="mt-3">

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CuentaVirtual.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210719013003_v1.0.0")]
-    partial class v100
+    [Migration("20210803192231_v1.0")]
+    partial class v10
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
