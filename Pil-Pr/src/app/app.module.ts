@@ -10,6 +10,11 @@ import { DashboardComponent } from './components/views/dashboard/dashboard.compo
 import { MenuComponent } from './components/Template/menu/menu.component';
 import { MenuLateralComponent } from './components/Template/menu-lateral/menu-lateral.component';
 import { PiePaginaComponent } from './components/Template/pie-pagina/pie-pagina.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { VerificacionComponent } from './components/views/registro/verificacion/verificacion.component';
+
 
 @NgModule({
   declarations: [
@@ -19,15 +24,20 @@ import { PiePaginaComponent } from './components/Template/pie-pagina/pie-pagina.
     DashboardComponent,
     MenuComponent,
     MenuLateralComponent,
-    PiePaginaComponent
+    PiePaginaComponent,
+    VerificacionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

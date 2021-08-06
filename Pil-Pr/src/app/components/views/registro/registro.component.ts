@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Archivo } from 'src/app/models/Archivo';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-registro',
@@ -13,13 +14,13 @@ export class RegistroComponent implements OnInit {
   formulario : FormGroup;
   loading = false;
   submitted = false;
-  img_doc : any;
-  img_doc_2 : any;
-  aceptarTerminos: boolean = false;
+  aceptarTerminos = false
 
   constructor(
     private fb: FormBuilder,
-    private router: Router    
+    private router: Router,
+    private route: ActivatedRoute,
+    private accountService: AccountService, 
     ) { 
     this.formulario = this.fb.group({
       firstName: ['', Validators.required],
@@ -41,52 +42,42 @@ export class RegistroComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
+    var element = <HTMLInputElement> document.getElementById("checked");
+    this.aceptarTerminos = element.checked;
+
     console.log(this.formulario)
+    console.log(this.aceptarTerminos)
 
     // Para aca si el formulario es invalido
     if (this.formulario.invalid) {
       console.log("formulario incompleto")
       return;
+    } 
+
+    if (this.aceptarTerminos == false){
+      console.log("No se aceptaron terminos")
+      return;
     }
 
-    //Envio de formulario al backend 
+    if(this.aceptarTerminos){
+      //Envio de formulario al backend
+      this.accountService.register(this.formulario.value)
+        .pipe(first())
+        .subscribe({
+            next: () => {
+                this.router.navigate(['/verificacion'], { relativeTo: this.route });
+            },
+            error: error => {
+                this.loading = false;
+            }
+        });
 
+      //this.router.navigate(['/verificacion']);
+    }
+    
     //Redigir a la pagina de login
     //this.router.navigate(['/login']);
   }
-  
-  fileEvent(imgInput: Event){
-    let file = (<HTMLInputElement>imgInput.target).files![0];
-    this.img_doc = new Archivo(1,file.name,file.type);
-  }
 
-  fileEvent2(imgInput: Event){
-    let file = (<HTMLInputElement>imgInput.target).files![0];
-    this.img_doc_2 = new Archivo(2,file.name,file.type);
-  }
-
-  subirArchivos(){
-    //Subir imagen 1
-    /*this.img.uploadFiles(this.img_doc).subscribe(data => {
-      console.log("se subio excelente la imagen 1")
-    })*/
-
-    //subir imagen 2
-    /*
-    this.img.uploadFiles(this.img_doc_2).subscribe(data => {
-      console.log("se subio excelente la imagen 2")
-    })
-    */
-    
-    console.log("Se subieron las imagenes")
-    console.log(this.img_doc);
-    console.log(this.img_doc_2)
-
-    //Redigir a la pagina de login
-    this.router.navigate(['/login']);
-  }
-
-  aceparTerminosYCondiciones(){
-    this.aceptarTerminos = true;
-  }
 }
+

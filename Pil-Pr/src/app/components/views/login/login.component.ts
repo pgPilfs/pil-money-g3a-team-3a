@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb : FormBuilder,
-    private router: Router
+    private router: Router,
+    private accountService: AccountService,
+    private route: ActivatedRoute,
   ) {
     this.form = this.fb.group({
       username: ['', Validators.required],
@@ -41,9 +45,18 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     //Enviamos informacion al backend 
+    this.accountService.login(this.f.username.value, this.f.password.value)
+            .pipe(first())
+            .subscribe({
+                next: () => {
+                    // obtener la URL de retorno de los parámetros de consulta o por defecto a la página de inicio
+                    const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+                    this.router.navigateByUrl(returnUrl);
+                }
+            });
 
     //Redigis al dashboard
     console.log(this.form)
-    this.router.navigate(['/home']);
+    //this.router.navigate(['/home']);
   }
 }
