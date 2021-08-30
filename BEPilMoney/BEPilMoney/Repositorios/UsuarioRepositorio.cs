@@ -32,16 +32,6 @@ namespace BEPilMoney.Repositorios
             return listado;
         }
 
-        public int Agregar(Usuario usuario)
-        {
-           
-        }
-
-        public int Modificar(Usuario obj) 
-        {
-            
-        }
-
         public int Eliminar(int id)
         {
             string spName = "[PilMoney_Api_EliminarUsuario]";
@@ -89,5 +79,10 @@ namespace BEPilMoney.Repositorios
             int filaAfectada = HelperSqlServer.GetHelperSqlServer().ExecuteSQLSEVER(spName, listParam);
             return filaAfectada;
         }
-    }
+
+		public int Agregar(object obj)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

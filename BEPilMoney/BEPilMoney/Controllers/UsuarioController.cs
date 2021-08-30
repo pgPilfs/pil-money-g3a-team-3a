@@ -30,21 +30,21 @@ namespace BEPilMoney.Controllers
             return Ok(DetalleDelUsuario);
         }
 
-        public IHttpActionResult Post([FromBody] Usuario usuario)
-        {
+        //public IHttpActionResult Post([FromBody] Usuario usuario)
+        //{
 
-            var resp = this._usuario.Agregar<Usuario>(usuario);
-            if (resp == 0) return BadRequest();
-            return Ok(resp);
-        }
+        //    var resp = this._usuario.Agregar<Usuario>(usuario);
+        //    if (resp == 0) return BadRequest();
+        //    return Ok(resp);
+        //}
 
-        public IHttpActionResult Put([FromBody] Usuario usuario)
-        {
+        //public IHttpActionResult Put([FromBody] Usuario usuario)
+        //{
 
-            var resp = this._usuario.Modificar<Usuario>(usuario);
-            if (resp == 0) return BadRequest();
-            return Ok(resp);
-        }
+        //    var resp = this._usuario.Modificar<Usuario>(usuario);
+        //    if (resp == 0) return BadRequest();
+        //    return Ok(resp);
+        //}
 
         public IHttpActionResult Delete(int id)
         {
