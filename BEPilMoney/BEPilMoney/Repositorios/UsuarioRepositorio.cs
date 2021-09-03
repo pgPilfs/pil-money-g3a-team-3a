@@ -46,6 +46,8 @@ namespace BEPilMoney.Repositorios
         public int Agregar(Usuario obj)
         {
             string spName = "PilMoney_Api_AgregarUsuario";
+            string token = Guid.NewGuid().ToString();
+            DateTime fecha = DateTime.Now;
             List<SqlParameter> listParam = new List<SqlParameter>()
             {
                 new SqlParameter("@DNI", obj.DNI),
@@ -56,6 +58,10 @@ namespace BEPilMoney.Repositorios
                 new SqlParameter("@Clave",obj.Clave),
                 new SqlParameter("@FotoPerfil",obj.FotoPerfil),
                 new SqlParameter("@FotoDNI",obj.FotoDNI),
+                new SqlParameter("@IdUsuario", obj.autenticacion.IdUsuario),
+                new SqlParameter("@Token", token),
+                new SqlParameter("@FechaToken", fecha),
+                new SqlParameter("@Estado", 1),
             };
             int filaAfectada = HelperSqlServer.GetHelperSqlServer().ExecuteSQLSEVER(spName, listParam);
             return filaAfectada;

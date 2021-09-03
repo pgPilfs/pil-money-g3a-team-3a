@@ -11,18 +11,34 @@ using BEPilMoney.Repositorios;
 
 namespace BEPilMoney.Controllers
 {
-    public class UsuarioController : ApiController
+    public class UsuarioController : BaseController
     {
         private UsuarioRepositorio _usuario = new UsuarioRepositorio();
 
-        public IHttpActionResult Get()
+        [HttpPost]
+        [ActionName("Login")]
+        public IHttpActionResult Login([FromBody] Usuario usuario)
+        {
+            string resp = string.Empty;
+
+            if (usuario.NombreUsuario != string.Empty && usuario.Clave != string.Empty) 
+                resp = this.InicioSesion(usuario.NombreUsuario, usuario.Clave);
+            else return BadRequest();
+            return Ok(resp);
+        }
+
+        [HttpGet]
+        [ActionName("Listado")]
+        public IHttpActionResult GetUsuarios()
         {
             var listadoUsuario = this._usuario.Listado();
             if (listadoUsuario == null || listadoUsuario.Rows.Count == 0) return NotFound();
             return Ok(listadoUsuario);
         }
 
-        public IHttpActionResult Get(int id)
+        [HttpGet]
+        [ActionName("Detalle")]
+        public IHttpActionResult GetUsuario(int id)
         {
             id = (id == 0) ? 0 : id;
             var DetalleDelUsuario = this._usuario.Detalle(id);
@@ -30,23 +46,35 @@ namespace BEPilMoney.Controllers
             return Ok(DetalleDelUsuario);
         }
 
-        public IHttpActionResult Post([FromBody] Usuario usuario)
+        [HttpPost]
+        [ActionName("Registrar")]
+        public IHttpActionResult PostUsuario([FromBody] Usuario usuario)
         {
-
+            string token = usuario.autenticacion.Token;
+            int estado = usuario.autenticacion.Estado;
+            if (this.ValidarToken(token, estado) == false)
+                return BadRequest();
             var resp = this._usuario.Agregar(usuario);
             if (resp == 0) return BadRequest();
             return Ok(resp);
         }
 
-        public IHttpActionResult Put([FromBody] Usuario usuario)
+        [HttpPost]
+        [ActionName("Modificar")]
+        public IHttpActionResult PutUsuario([FromBody] Usuario usuario)
         {
-
+            string token = usuario.autenticacion.Token;
+            int estado = usuario.autenticacion.Estado;
+            if(this.ValidarToken(token, estado) == false)
+                return BadRequest();
             var resp = this._usuario.Modificar(usuario);
             if (resp == 0) return BadRequest();
             return Ok(resp);
         }
 
-        public IHttpActionResult Delete(int id)
+        [HttpDelete]
+        [ActionName("Eliminar")]
+        public IHttpActionResult DeleteUsuario(int id)
         {
             id = (id == 0) ? 0 : id;
             var resp = this._usuario.Eliminar(id);
