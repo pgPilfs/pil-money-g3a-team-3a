@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 using BEPilMoney.Models;
 using BEPilMoney.Repositorios;
@@ -11,21 +12,11 @@ using BEPilMoney.Repositorios;
 
 namespace BEPilMoney.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+
     public class UsuarioController : BaseController
     {
         private UsuarioRepositorio _usuario = new UsuarioRepositorio();
-
-        [HttpPost]
-        [ActionName("Login")]
-        public IHttpActionResult Login([FromBody] Usuario usuario)
-        {
-            string resp = string.Empty;
-
-            if (usuario.NombreUsuario != string.Empty && usuario.Clave != string.Empty) 
-                resp = this.InicioSesion(usuario.NombreUsuario, usuario.Clave);
-            else return BadRequest();
-            return Ok(resp);
-        }
 
         [HttpGet]
         [ActionName("Listado")]
@@ -50,10 +41,6 @@ namespace BEPilMoney.Controllers
         [ActionName("Registrar")]
         public IHttpActionResult PostUsuario([FromBody] Usuario usuario)
         {
-            string token = usuario.autenticacion.Token;
-            int estado = usuario.autenticacion.Estado;
-            if (this.ValidarToken(token, estado) == false)
-                return BadRequest();
             var resp = this._usuario.Agregar(usuario);
             if (resp == 0) return BadRequest();
             return Ok(resp);
@@ -72,12 +59,15 @@ namespace BEPilMoney.Controllers
             return Ok(resp);
         }
 
-        [HttpDelete]
+        [HttpPost]
         [ActionName("Eliminar")]
-        public IHttpActionResult DeleteUsuario(int id)
+        public IHttpActionResult DeleteUsuario([FromBody] Usuario usuario)
         {
-            id = (id == 0) ? 0 : id;
-            var resp = this._usuario.Eliminar(id);
+            string token = usuario.autenticacion.Token;
+            int estado = usuario.autenticacion.Estado;
+            if (this.ValidarToken(token, estado) == false)
+                return BadRequest();
+            var resp = this._usuario.Eliminar(usuario.Id);
             if (resp == 0) return BadRequest();
             return Ok(resp);
         }

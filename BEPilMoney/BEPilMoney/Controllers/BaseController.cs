@@ -2,6 +2,7 @@
 using BEPilMoney.Repositorios;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -13,11 +14,11 @@ namespace BEPilMoney.Controllers
     {
         private BaseRepositorio _br = new BaseRepositorio();
 
-        public string InicioSesion(string usuario, string password)
+        public DataTable InicioSesion(string usuario, string password)
         {
-            string resp = string.Empty;
+            DataTable resp = new DataTable();
 
-            if(usuario != string.Empty && password != string.Empty)
+            if (usuario != string.Empty && password != string.Empty)
             {
                 resp = this._br.Login(usuario, password);
             }

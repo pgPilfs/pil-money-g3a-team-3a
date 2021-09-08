@@ -109,5 +109,9 @@ namespace BEPilMoney.AccesoADatos
             return this._filasAfecctadas;
         }
         #endregion
+
+        #region Helpers
+
+        #endregion
     }
 }

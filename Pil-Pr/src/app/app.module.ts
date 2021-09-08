@@ -10,6 +10,9 @@ import { DashboardComponent } from './components/views/dashboard/dashboard.compo
 import { MenuComponent } from './components/Template/menu/menu.component';
 import { MenuLateralComponent } from './components/Template/menu-lateral/menu-lateral.component';
 import { PiePaginaComponent } from './components/Template/pie-pagina/pie-pagina.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { PiePaginaComponent } from './components/Template/pie-pagina/pie-pagina.
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

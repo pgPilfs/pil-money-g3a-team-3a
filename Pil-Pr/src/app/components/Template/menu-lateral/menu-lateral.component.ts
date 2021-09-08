@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-lateral',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuLateralComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  cerrarSesion(){
+    sessionStorage.removeItem("user");
+    sessionStorage.removeItem("token");
+    sessionStorage.clear();
+    this.router.navigate(['/']);
   }
 
 }

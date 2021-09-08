@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Archivo } from 'src/app/models/Archivo';
+import { ToastrService } from 'ngx-toastr';
+import { Autenticacion } from 'src/app/models/Autenticacion';
+import { Usuario } from 'src/app/models/Usuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-registro',
@@ -15,11 +18,13 @@ export class RegistroComponent implements OnInit {
   submitted = false;
   img_doc : any;
   img_doc_2 : any;
-  aceptarTerminos: boolean = false;
+  aceptarTerminos: boolean = true;
 
   constructor(
     private fb: FormBuilder,
-    private router: Router    
+    private router: Router,
+    private _UsuarioService : UsuarioService,
+    private _toastr: ToastrService    
     ) { 
     this.formulario = this.fb.group({
       firstName: ['', Validators.required],
@@ -41,15 +46,25 @@ export class RegistroComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    console.log(this.formulario)
-
+    
+    
     // Para aca si el formulario es invalido
     if (this.formulario.invalid) {
       console.log("formulario incompleto")
       return;
     }
+    const au = new Autenticacion();
+    const user = new Usuario(-1, this.f.dni.value, this.f.firstName.value, this.f.lastName.value,  this.f.mail.value,
+                    this.f.username.value, this.f.password.value, "", "", au);
+
 
     //Envio de formulario al backend 
+    this._UsuarioService.agregarUsuario(user).subscribe(datos => {
+        this._toastr.success('Se registro correctamente', 'USUARIO REGISTRADO');
+        this.router.navigate(['/login']);
+    }, error => {
+        this._toastr.error(error, 'Error');
+    });
 
     //Redigir a la pagina de login
     //this.router.navigate(['/login']);
@@ -57,12 +72,12 @@ export class RegistroComponent implements OnInit {
   
   fileEvent(imgInput: Event){
     let file = (<HTMLInputElement>imgInput.target).files![0];
-    this.img_doc = new Archivo(1,file.name,file.type);
+    this.img_doc = file.name;
   }
 
   fileEvent2(imgInput: Event){
     let file = (<HTMLInputElement>imgInput.target).files![0];
-    this.img_doc_2 = new Archivo(2,file.name,file.type);
+    this.img_doc_2 = file.name;
   }
 
   subirArchivos(){
@@ -84,9 +99,5 @@ export class RegistroComponent implements OnInit {
 
     //Redigir a la pagina de login
     this.router.navigate(['/login']);
-  }
-
-  aceparTerminosYCondiciones(){
-    this.aceptarTerminos = true;
   }
 }

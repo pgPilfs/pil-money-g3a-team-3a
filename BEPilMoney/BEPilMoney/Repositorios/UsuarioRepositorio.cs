@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Security.Cryptography;
+using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using BEPilMoney.AccesoADatos;
@@ -55,7 +57,7 @@ namespace BEPilMoney.Repositorios
                 new SqlParameter("@Apellido", obj.Apellido),
                 new SqlParameter("@Email",obj.Email),
                 new SqlParameter("@NombreUsuario",obj.NombreUsuario),
-                new SqlParameter("@Clave",obj.Clave),
+                new SqlParameter("@Clave",this.GetSHA256(obj.Clave)),
                 new SqlParameter("@FotoPerfil",obj.FotoPerfil),
                 new SqlParameter("@FotoDNI",obj.FotoDNI),
                 new SqlParameter("@IdUsuario", obj.autenticacion.IdUsuario),
@@ -78,12 +80,23 @@ namespace BEPilMoney.Repositorios
                 new SqlParameter("@Apellido", obj.Apellido),
                 new SqlParameter("@Email",obj.Email),
                 new SqlParameter("@NombreUsuario",obj.NombreUsuario),
-                new SqlParameter("@Clave",obj.Clave),
+                new SqlParameter("@Clave",this.GetSHA256(obj.Clave)),
                 new SqlParameter("@FotoPerfil",obj.FotoPerfil),
                 new SqlParameter("@FotoDNI",obj.FotoDNI),
             };
             int filaAfectada = HelperSqlServer.GetHelperSqlServer().ExecuteSQLSEVER(spName, listParam);
             return filaAfectada;
+        }
+
+        private string GetSHA256(string pass)
+        {
+            SHA256 sha256 = SHA256Managed.Create();
+            ASCIIEncoding encodig = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha256.ComputeHash(encodig.GetBytes(pass));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
         }
     }
 }
