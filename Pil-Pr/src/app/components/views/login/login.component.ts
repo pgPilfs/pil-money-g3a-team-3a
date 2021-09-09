@@ -29,6 +29,9 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    if (sessionStorage.getItem("user")){
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   // Getter conveniente para acceder mas facil a los campos de form

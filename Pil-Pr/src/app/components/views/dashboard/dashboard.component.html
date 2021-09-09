@@ -111,8 +111,8 @@
               </div>
 
               <div class="card-body">
-                <ul class="list-group list-group-flush">
-                  <li
+                <ul *ngfor="let datos of listado()" class="list-group list-group-flush">
+                  <li 
                     class="
                       list-group-item
                       d-flex
@@ -120,7 +120,7 @@
                       align-items-center
                     "
                   >
-                    Pagar Aguas Cordobesas
+                    Pagar {{datos}}
                     <a href="#" class="btn btn-link float-right pagar">
                       PAGAR</a
                     >

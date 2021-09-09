@@ -269,3 +269,6 @@ C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a-SubEquipo-LuDaniJ
 C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\System.Web.Cors.dll
 C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\System.Web.Http.Cors.dll
 C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\System.Web.Http.Cors.xml
+C:\Users\lucia\Desktop\Capacitación PIL - Full Stack\4. Proyecto\PIL MONEY\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\System.Web.Cors.dll
+C:\Users\lucia\Desktop\Capacitación PIL - Full Stack\4. Proyecto\PIL MONEY\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\System.Web.Http.Cors.dll
+C:\Users\lucia\Desktop\Capacitación PIL - Full Stack\4. Proyecto\PIL MONEY\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\System.Web.Http.Cors.xml
