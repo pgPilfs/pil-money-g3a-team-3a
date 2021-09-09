@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TipoServicio } from 'src/app/models/TipoServicio';
 import { ServicioService } from 'src/app/services/servicio.service';
 
 @Component({
@@ -9,11 +10,13 @@ import { ServicioService } from 'src/app/services/servicio.service';
 })
 export class DashboardComponent implements OnInit {
 
+  listadoServicio:TipoServicio[] = []; 
+
   constructor(private router: Router, private _servicio:ServicioService) { }
 
   ngOnInit(): void {
     this.validarPermiso();
-    // this.listado();
+    this.listado();
   }
   
   validarPermiso(){
@@ -24,8 +27,8 @@ export class DashboardComponent implements OnInit {
 
   listado(){
       this._servicio.listadoTipoServicio().subscribe(datos => {
-      // console.log(JSON.stringify(datos));
-      return JSON.stringify(datos);
+       this.listadoServicio = datos;
+       console.log(this.listadoServicio);
     });
   }
 

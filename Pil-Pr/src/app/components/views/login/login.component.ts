@@ -54,8 +54,7 @@ export class LoginComponent implements OnInit {
     const inicioSesion = new Login(this.form.get('username')?.value, this.form.get('password')?.value);
   
     // nos sucribimos al observable del sevicio login.
-    this._loginService.login(inicioSesion).subscribe(datos => {
-      console.log(datos);
+    this._loginService.login(inicioSesion).subscribe(datos => {;
       if(datos.length == 0){
         this._toastr.error('Usuario o Cantraseña Incorrecta', 'DATOS INCORRECTOS');
         this.form.reset();

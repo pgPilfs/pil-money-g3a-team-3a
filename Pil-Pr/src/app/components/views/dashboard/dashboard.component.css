@@ -12,7 +12,7 @@
    padding: 14px 0px;
 }
 .pagar {
-   text-decoration: none;
+   /* text-decoration: none; */
    color: rgb(45, 17, 121);
    font-size: 14px !important;
    padding: 0px !important;
@@ -22,3 +22,7 @@
    color: black
 }
 
+.list-group-item-hover:nth-child(odd){
+   background-color: rgba(242, 243, 244, .4);
+   cursor: pointer;
+}
