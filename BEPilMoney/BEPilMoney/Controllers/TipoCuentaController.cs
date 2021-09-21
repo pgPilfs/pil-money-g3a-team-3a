@@ -15,6 +15,7 @@ namespace BEPilMoney.Controllers
         private TipoCuentaRepositorio _tipoCuenta = new TipoCuentaRepositorio();
 
         [HttpPost]
+        [Route("api/TipoDeCuenta")]
         public IHttpActionResult Post([FromBody] TipoCuenta tipoCuenta)  
         {
             int filasAfectadas = this._tipoCuenta.Agregar(tipoCuenta);

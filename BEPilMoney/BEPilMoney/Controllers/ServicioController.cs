@@ -11,19 +11,17 @@ using BEPilMoney.Repositorios;
 namespace BEPilMoney.Controllers
 
 {
+    [Authorize]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-
     public class ServicioController : BaseController
     {
         private ServicioRepositorio _servicio = new ServicioRepositorio();
 
-        //localhost:port/api/nombreControlador/accion/parametroOpcional
         [HttpGet]
-        [ActionName("Listado")]
+        [Route("api/ListadoDeServicios")]
         public IHttpActionResult GetTipoServicio()
         {
             DataTable listadoTipoServicio = _servicio.ListadoTipoServicio();
-
             if (listadoTipoServicio != null) this.BadRequest();
             return this.Ok(listadoTipoServicio);
         }

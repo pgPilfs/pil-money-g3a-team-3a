@@ -19,7 +19,7 @@ namespace BEPilMoney.Controllers
         private UsuarioRepositorio _usuario = new UsuarioRepositorio();
 
         [HttpGet]
-        [ActionName("Listado")]
+        [Route("api/ListadoUsuario")]
         public IHttpActionResult GetUsuarios()
         {
             var listadoUsuario = this._usuario.Listado();
@@ -28,7 +28,7 @@ namespace BEPilMoney.Controllers
         }
 
         [HttpGet]
-        [ActionName("Detalle")]
+        [Route("api/DetalleUsuario/{id:int}")]
         public IHttpActionResult GetUsuario(int id)
         {
             id = (id == 0) ? 0 : id;
@@ -38,7 +38,7 @@ namespace BEPilMoney.Controllers
         }
 
         [HttpPost]
-        [ActionName("Registrar")]
+        [Route("api/Registrar")]
         public IHttpActionResult PostUsuario([FromBody] Usuario usuario)
         {
             var resp = this._usuario.Agregar(usuario);
@@ -47,7 +47,7 @@ namespace BEPilMoney.Controllers
         }
 
         [HttpPost]
-        [ActionName("Modificar")]
+        [Route("api/Modificar")]
         public IHttpActionResult PutUsuario([FromBody] Usuario usuario)
         {
             string token = usuario.autenticacion.Token;
@@ -60,7 +60,7 @@ namespace BEPilMoney.Controllers
         }
 
         [HttpPost]
-        [ActionName("Eliminar")]
+        [Route("api/Eliminar")]
         public IHttpActionResult DeleteUsuario([FromBody] Usuario usuario)
         {
             string token = usuario.autenticacion.Token;

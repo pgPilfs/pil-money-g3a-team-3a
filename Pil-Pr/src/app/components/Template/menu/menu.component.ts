@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,19 +8,17 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  nombreUsario:any;
+  @Input() nombreUsario:any;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.nombreUsario = sessionStorage.getItem("user");
+    
   }
 
   cerrarSesion(){
-    sessionStorage.removeItem("user");
-    sessionStorage.removeItem("token");
-    sessionStorage.clear();
+    localStorage.removeItem("token");
+    localStorage.clear();
     this.router.navigate(['/']);
   }
-
 }

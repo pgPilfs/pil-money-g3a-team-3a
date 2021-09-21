@@ -54,14 +54,13 @@ export class LoginComponent implements OnInit {
     const inicioSesion = new Login(this.form.get('username')?.value, this.form.get('password')?.value);
   
     // nos sucribimos al observable del sevicio login.
-    this._loginService.login(inicioSesion).subscribe(datos => {;
-      if(datos.length == 0){
+    this._loginService.login(inicioSesion).subscribe(datos => {
+      if(!datos){
         this._toastr.error('Usuario o Cantraseña Incorrecta', 'DATOS INCORRECTOS');
         this.form.reset();
       }else{
         // localStorage token
-        sessionStorage.setItem('token', datos[0].Token);
-        sessionStorage.setItem("user", datos[0].NombreApellido);
+        localStorage.setItem('token', datos);
         // //Redirecciona al dashboard
         this.router.navigate(['/dashboard']);
       }

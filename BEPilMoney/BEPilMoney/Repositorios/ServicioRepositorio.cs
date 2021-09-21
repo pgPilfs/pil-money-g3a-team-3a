@@ -40,7 +40,8 @@ namespace BEPilMoney.Repositorios
         {
             DataTable listado = null;
             string spName = "PilMoney_Api_ListadoDeServicios";
-            listado = HelperSqlServer.GetHelperSqlServer().SelectDataBase(spName);
+            DAO dao = new DAO();
+            listado = dao.SelectDataBase(spName);
             return listado;
         }
     }

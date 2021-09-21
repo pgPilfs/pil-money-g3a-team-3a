@@ -18,20 +18,27 @@ namespace BEPilMoney.Repositorios
         public DataTable Login(string usuario, string password)
         {
             string spName = "PilMoney_Api_Login";
-            password = this.GetSHA256(password);
-            List<SqlParameter> listPara = new List<SqlParameter>()
+            //password = this.GetSHA256(password);
+            List<SqlParameter> listParam = new List<SqlParameter>()
             {
                 new SqlParameter("@Usuario", usuario),
                 new SqlParameter("@Password", password)
             };
-            this._dt = HelperSqlServer.GetHelperSqlServer().SelectDataBase(spName, listPara);
+            DAO dao = new DAO();
+            this._dt = dao.SelectDataBase(spName, listParam);
             return this._dt;
         }
 
         public bool ValidarToken(string token)
         {
             bool resp = false;
-            if (token == "ffb2bc6a-a83f-462c-9727-58e58ab7898e")
+            string spName = "PilMoney_Api_Validar_Token";
+            List<SqlParameter> listParam = new List<SqlParameter>()
+            {
+                new SqlParameter("@Token", token)
+            };
+            string tokenBD = HelperSqlServer.GetHelperSqlServer().SelectDataBase(spName, listParam).Rows[0]["Token"].ToString();
+            if (token == tokenBD)
             {
                 resp = true;
             }

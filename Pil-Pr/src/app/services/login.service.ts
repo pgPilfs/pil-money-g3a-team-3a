@@ -8,7 +8,7 @@ import { Login } from '../models/Login';
 })
 export class LoginService {
 
-  private myApiUrl:string ="https://localhost:44382/api/Login/Login";
+  private myApiUrl:string ="https://localhost:44382/api/Login";
 
   constructor(private http:HttpClient) { }
 

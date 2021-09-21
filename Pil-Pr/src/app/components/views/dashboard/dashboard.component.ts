@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cuenta } from 'src/app/models/Cuenta';
 import { TipoServicio } from 'src/app/models/TipoServicio';
 import { ServicioService } from 'src/app/services/servicio.service';
 
@@ -10,26 +11,45 @@ import { ServicioService } from 'src/app/services/servicio.service';
 })
 export class DashboardComponent implements OnInit {
 
-  listadoServicio:TipoServicio[] = []; 
+  listadoServicio:TipoServicio[] = [];
+  cuenta:Cuenta[] = [];
+  ultimos:any[] = [];
 
   constructor(private router: Router, private _servicio:ServicioService) { }
 
   ngOnInit(): void {
-    this.validarPermiso();
+    this.datosCuentaPesos();
     this.listado();
+    this.ultimosMovimientos();
   }
   
-  validarPermiso(){
-    if(!sessionStorage.getItem('token')){
-      this.router.navigate(['/']);
+  listado(){
+      this._servicio.listadoTipoServicio().subscribe(datosServicio => {
+        this.listadoServicio = datosServicio;
+      },error =>{
+        console.log(error);
+      });
     }
+    
+    datosCuentaPesos(){
+      let id = [2];
+      this._servicio.datosCuentaEnPesos(id).subscribe(datosCuenta => {
+        this.cuenta = datosCuenta;
+    },error =>{
+      console.log(error);
+    });
+    
   }
 
-  listado(){
-      this._servicio.listadoTipoServicio().subscribe(datos => {
-       this.listadoServicio = datos;
-       console.log(this.listadoServicio);
-    });
-  }
+  ultimosMovimientos(){
+    let id = [2];
+    this._servicio.ultimosMovimientos(id).subscribe(datosUltimoMovimiento => {
+      console.log(datosUltimoMovimiento);
+      this.ultimos = datosUltimoMovimiento;
+  },error =>{
+    console.log(error);
+  });
+  
+}
 
 }

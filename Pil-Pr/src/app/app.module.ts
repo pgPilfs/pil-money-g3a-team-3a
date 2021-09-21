@@ -10,9 +10,10 @@ import { DashboardComponent } from './components/views/dashboard/dashboard.compo
 import { MenuComponent } from './components/Template/menu/menu.component';
 import { MenuLateralComponent } from './components/Template/menu-lateral/menu-lateral.component';
 import { PiePaginaComponent } from './components/Template/pie-pagina/pie-pagina.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { JwtInterceptorInterceptor } from './Security/jwt-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,11 +7,22 @@ import { Observable } from 'rxjs';
 })
 export class ServicioService {
 
-  private URLapi:string="https://localhost:44382/api/servicio/listado";
-
+  private URLapi:string="https://localhost:44382/api/";
+  private router:string = "";
   constructor(private http:HttpClient) { }
 
   listadoTipoServicio(): Observable<any>{
-    return this.http.get(this.URLapi);
+    this.router = "ListadoDeServicios";
+    return this.http.get(this.URLapi + this.router);
+  }
+
+  datosCuentaEnPesos(token:any): Observable<any>{
+    this.router = "CuentaPesos";
+    return this.http.post(this.URLapi + this.router, token);
+  }
+
+  ultimosMovimientos(token:any): Observable<any>{
+    this.router = "UltimosMovimientos";
+    return this.http.post(this.URLapi + this.router, token);
   }
 }

@@ -14,9 +14,8 @@ export class MenuLateralComponent implements OnInit {
   }
 
   cerrarSesion(){
-    sessionStorage.removeItem("user");
-    sessionStorage.removeItem("token");
-    sessionStorage.clear();
+    localStorage.removeItem("token");
+    localStorage.clear();
     this.router.navigate(['/']);
   }
 

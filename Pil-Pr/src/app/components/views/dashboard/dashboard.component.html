@@ -1,6 +1,6 @@
 <div class="container-scroller">
   <!-- partial:../../partials/_navbar.html -->
-  <app-menu></app-menu>
+  <app-menu [nombreUsario]="cuenta[0]?.NombreApellido"></app-menu>
   <!-- partial -->
   <div class="container-fluid page-body-wrapper">
     <!-- partial:../../partials/_sidebar.html -->
@@ -50,8 +50,8 @@
                   Cuenta Pesos
                   <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                 </h4>
-                <h2 class="mb-5">$ 15,000</h2>
-                <h6 class="card-text">5 Movimiento registrado</h6>
+                <h2 class="mb-5">{{cuenta[0]?.Saldo | currency:'AR':'$':'1.2-2'}}</h2>
+                <h6 class="card-text">0 Movimiento registrado</h6>
               </div>
             </div>
           </div>
@@ -70,8 +70,8 @@
                   Cuenta Dolares
                   <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                 </h4>
-                <h2 class="mb-5">U$S 45,6334</h2>
-                <h6 class="card-text">1 Movimiento registrado</h6>
+                <h2 class="mb-5">U$S 0.0</h2>
+                <h6 class="card-text">0 Movimiento registrado</h6>
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@
                     class="mdi mdi-diamond mdi-24px float-right"
                   ></i>
                 </h4>
-                <h2 class="mb-5">BIT 2.5</h2>
+                <h2 class="mb-5">BIT 0.0</h2>
                 <h6 class="card-text">Actualmente Minando</h6>
               </div>
             </div>
@@ -144,7 +144,7 @@
               </div>
               <div class="card-body">
                 <ul class="list-group list-group-flush">
-                  <li
+                  <li *ngFor="let dato of ultimos"
                     class="
                       list-group-item
                       d-flex
@@ -152,30 +152,8 @@
                       align-items-center
                     "
                   >
-                    Pagaste Aguas Cordobesas
-                    <span>-$860,57</span>
-                  </li>
-                  <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-center
-                    "
-                  >
-                    Pagaste Epec
-                    <span>-$4261,99</span>
-                  </li>
-                  <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-center
-                    "
-                  >
-                    Recibiste una transferencia de Juan
-                    <span>+$230,00</span>
+                    {{dato.TipoServicio}}
+                    <span>-{{ dato.Monto | currency:'AR':'$':'1.2-2'}}</span>
                   </li>
                 </ul>
               </div>
