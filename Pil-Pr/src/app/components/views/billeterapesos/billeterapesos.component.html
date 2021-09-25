@@ -1,0 +1,88 @@
+<div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+    <app-menu [nombreUsario]=""></app-menu>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_sidebar.html -->
+      <app-menu-lateral></app-menu-lateral>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper margenes">
+          <div class="page-header">
+            <h3 class="page-title">
+              <span
+                class="page-title-icon text-white mr-2"
+                style="background: linear-gradient(to right, #494889, #292874)"
+              >
+                <i class="mdi mdi-cash-usd"></i>
+              </span>
+              Mi Cuenta en pesos
+            </h3>
+            <nav aria-label="breadcrumb">
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                  <span></span>
+                  <!-- <i
+                    class="
+                      mdi mdi-alert-circle-outline
+                      icon-sm
+                      text-primary
+                      align-middle
+                    "
+                  ></i> -->
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="row">
+              <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="float-left">Dinero disponible</h5>
+                        <p class="float-right"><a href="#"><span class="badge badge-info opacity">Tu cvu</span></a></p>
+                    </div>
+                    <div class="card-body">
+                      <h2 class="card-title texto-peso"><i class=""></i> $ 81.70</h2>
+                      <hr>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-info opacity">Ingresar dinero</a>
+                        <a href="#" class="btn btn-success ml-5 opacity">Transferir dinero</a>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-left">Movimiento de tu dinero</h4>
+                        <p class="">
+                            Conocé el detalle de las operaciones que impactan en tu Dinero disponible.
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item disabled" aria-disabled="true">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Morbi leo risus</li>
+                            <li class="list-group-item">Porta ac consectetur ac</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                          </ul>
+                    </div>
+                    <div class="card-footer">
+                        
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <app-pie-pagina></app-pie-pagina>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
