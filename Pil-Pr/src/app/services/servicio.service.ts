@@ -16,9 +16,9 @@ export class ServicioService {
     return this.http.get(this.URLapi + this.router);
   }
 
-  datosCuentaEnPesos(token:any): Observable<any>{
+  datosCuentaEnPesos(id:any): Observable<any>{
     this.router = "CuentaPesos";
-    return this.http.post(this.URLapi + this.router, token);
+    return this.http.post(this.URLapi + this.router, id);
   }
 
   ultimosMovimientos(token:any): Observable<any>{

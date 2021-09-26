@@ -35,6 +35,7 @@ export class DashboardComponent implements OnInit {
       let id = [2];
       this._servicio.datosCuentaEnPesos(id).subscribe(datosCuenta => {
         this.cuenta = datosCuenta;
+        sessionStorage.setItem("Usuario", this.cuenta[0]["NombreApellido"]);
     },error =>{
       console.log(error);
     });
@@ -44,7 +45,6 @@ export class DashboardComponent implements OnInit {
   ultimosMovimientos(){
     let id = [2];
     this._servicio.ultimosMovimientos(id).subscribe(datosUltimoMovimiento => {
-      console.log(datosUltimoMovimiento);
       this.ultimos = datosUltimoMovimiento;
   },error =>{
     console.log(error);

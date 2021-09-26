@@ -18,12 +18,12 @@ const routes: Routes = [
   {
     path:"dashboard",component: DashboardComponent, 
     pathMatch:"full",
-    //canActivate: [UsenGuardGuard]
+    canActivate: [UsenGuardGuard]
   },
   {
     path:"billeterapesos",component: BilleterapesosComponent, 
     pathMatch:"full",
-    // canActivate: [UsenGuardGuard]
+    canActivate: [UsenGuardGuard]
   },
   {
     path:"**",redirectTo:"/login", pathMatch:"full"

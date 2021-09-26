@@ -280,3 +280,11 @@ C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilM
 C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\Microsoft.IdentityModel.Logging.xml
 C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\Microsoft.IdentityModel.Tokens.xml
 C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\lucia\Desktop\Capacitación PIL - Full Stack\4. Proyecto\PIL MONEY\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\lucia\Desktop\Capacitación PIL - Full Stack\4. Proyecto\PIL MONEY\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\lucia\Desktop\Capacitación PIL - Full Stack\4. Proyecto\PIL MONEY\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\lucia\Desktop\Capacitación PIL - Full Stack\4. Proyecto\PIL MONEY\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\lucia\Desktop\Capacitación PIL - Full Stack\4. Proyecto\PIL MONEY\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\lucia\Desktop\Capacitación PIL - Full Stack\4. Proyecto\PIL MONEY\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\lucia\Desktop\Capacitación PIL - Full Stack\4. Proyecto\PIL MONEY\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\lucia\Desktop\Capacitación PIL - Full Stack\4. Proyecto\PIL MONEY\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\System.IdentityModel.Tokens.Jwt.xml

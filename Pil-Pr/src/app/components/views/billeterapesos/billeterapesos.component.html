@@ -1,28 +1,26 @@
 <div class="container-scroller">
-    <!-- partial:../../partials/_navbar.html -->
-    <app-menu [nombreUsario]=""></app-menu>
+  <!-- partial:../../partials/_navbar.html -->
+  <app-menu [nombreUsario]=""></app-menu>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:../../partials/_sidebar.html -->
+    <app-menu-lateral></app-menu-lateral>
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:../../partials/_sidebar.html -->
-      <app-menu-lateral></app-menu-lateral>
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper margenes">
-          <div class="page-header">
-            <h3 class="page-title">
-              <span
-                class="page-title-icon text-white mr-2"
-                style="background: linear-gradient(to right, #494889, #292874)"
-              >
-                <i class="mdi mdi-cash-usd"></i>
-              </span>
-              Mi Cuenta en pesos
-            </h3>
-            <nav aria-label="breadcrumb">
-              <ul class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">
-                  <span></span>
-                  <!-- <i
+    <div class="main-panel">
+      <div class="content-wrapper margenes">
+        <div class="page-header">
+          <h3 class="page-title">
+            <span class="page-title-icon text-white mr-2"
+              style="background: linear-gradient(to right, #494889, #292874)">
+              <i class="mdi mdi-cash-usd"></i>
+            </span>
+            Mi Cuenta en pesos
+          </h3>
+          <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">
+                <span></span>
+                <!-- <i
                     class="
                       mdi mdi-alert-circle-outline
                       icon-sm
@@ -30,59 +28,151 @@
                       align-middle
                     "
                   ></i> -->
-                </li>
-              </ul>
-            </nav>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="float-left">Dinero disponible</h5>
+              </div>
+              <div class="card-body">
+                <h2 class="card-title texto-peso">
+                  <i class=""></i>{{ cuenta[0]?.Saldo | currency: "AR":"$":"1.2-2" }}
+                </h2>
+                <hr />
+                <p class="card-text">CVU: {{ cuenta[0]?.CVU }}</p>
+              </div>
+              <div class="card-footer">
+                <button type="button" class="btn btn-sm btn-info ml-3 opacity" data-toggle="modal"
+                  data-target="#IngresoDinero">
+                  Ingresar dinero
+                </button>
+                <a href="#" class="btn btn-sm btn-success ml-5 opacity">Transferir dinero</a>
+              </div>
+            </div>
           </div>
-          <div class="row">
-              <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="float-left">Dinero disponible</h5>
-                        <p class="float-right"><a href="#"><span class="badge badge-info opacity">Tu cvu</span></a></p>
-                    </div>
-                    <div class="card-body">
-                      <h2 class="card-title texto-peso"><i class=""></i> $ 81.70</h2>
-                      <hr>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-info opacity">Ingresar dinero</a>
-                        <a href="#" class="btn btn-success ml-5 opacity">Transferir dinero</a>
+          <div class="col-md-7">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="text-left">Movimiento de tu dinero</h4>
+                <p class="">
+                  Conocé el detalle de las operaciones que impactan en tu Dinero
+                  disponible.
+                </p>
+              </div>
+              <div class="card-body">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item disabled" aria-disabled="true">
+                    Cras justo odio
+                  </li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Morbi leo risus</li>
+                  <li class="list-group-item">Porta ac consectetur ac</li>
+                  <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+              </div>
+              <div class="card-footer"></div>
+            </div>
+          </div>
+          <div class="modal" id="IngresoDinero" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Ingresar dinero</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-12 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body">
+                          <form class="forms-sample" [formGroup]="form" (ngSubmit)="onSubmit()">
+                              <div class="form-group">
+                                <label>Cuenta de origen</label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text bg-gradient-primary text-white">CVU</span>
+                                  </div>
+                                  <input type="text" class="form-control" formControlName="CuentaOrigen"
+                                    aria-label="Amount (to the nearest dollar)" [ngClass]="{
+                                    'is-invalid': submitted && f.CuentaOrigen.errors
+                                  }" required />
+                                  <div *ngIf="submitted && f.CuentaOrigen.errors" class="invalid-feedback">
+                                    <div *ngIf="f.CuentaOrigen.errors.required">
+                                      El CVU de origen es requerido
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleFormControlSelect1">Cuenta de destino</label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text bg-gradient-primary text-white">CVU</span>
+                                  </div>
+                                  <select class="form-control form-control-lg" formControlName="CuentaDestino">
+                                    <option [ngValue]="2">{{ cuenta[0]?.CVU }}</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>Dinero que desea ingresar</label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text bg-gradient-primary text-white">$</span>
+                                  </div>
+                                  <input type="text" class="form-control" formControlName="IngresoMonto"
+                                    aria-label="Amount (to the nearest dollar)" [ngClass]="{
+                                    'is-invalid': submitted && f.IngresoMonto.errors
+                                  }" required />
+                                  <div *ngIf="submitted && f.IngresoMonto.errors" class="invalid-feedback">
+                                    <div *ngIf="f.IngresoMonto.errors.required">
+                                      Coloque el monto que desea ingresar 
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="float-right">
+                                <button class="btn btn-light mr-2" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-gradient-primary">
+                                  Confirmar
+                                </button>
+                              </div>
+                            </form>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                </div>
+                <div class="modal-footer">
+                  <!-- <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Cancelar
+                  </button>
+                  <button type="submit" class="btn btn-gradient-primary">
+                    Confirmar
+                  </button> -->
+                </div>
               </div>
-              <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="text-left">Movimiento de tu dinero</h4>
-                        <p class="">
-                            Conocé el detalle de las operaciones que impactan en tu Dinero disponible.
-                        </p>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item disabled" aria-disabled="true">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Morbi leo risus</li>
-                            <li class="list-group-item">Porta ac consectetur ac</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
-                          </ul>
-                    </div>
-                    <div class="card-footer">
-                        
-                    </div>
-                  </div>
-              </div>
+            </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->
-        <app-pie-pagina></app-pie-pagina>
-        <!-- partial -->
       </div>
-      <!-- main-panel ends -->
+      <!-- content-wrapper ends -->
+      <!-- partial:../../partials/_footer.html -->
+      <app-pie-pagina></app-pie-pagina>
+      <!-- partial -->
     </div>
-    <!-- page-body-wrapper ends -->
+    <!-- main-panel ends -->
   </div>
-  <!-- container-scroller -->
+  <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->

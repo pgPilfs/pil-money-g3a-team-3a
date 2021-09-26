@@ -200,7 +200,7 @@ CREATE PROCEDURE [dbo].[PilMoney_Api_Login]
 @Usuario VARCHAR(20),
 @Password VARCHAR(20)
 AS
-SELECT a.Token, CONCAT(u.Nombre, ' ', u.Apellido) AS NombreApellido  
+SELECT a.Token, u.Id , CONCAT(u.Nombre, ' ', u.Apellido) AS NombreApellido  
 FROM Usuario u
 INNER JOIN Autenticacion a ON u.Id = a.Id
 WHERE u.NombreUsuario = @Usuario AND u.Clave = @Password;
@@ -214,13 +214,32 @@ FROM   Autenticacion a
 WHERE a.Token = @Token;
 GO
 
-CREATE PROCEDURE PilMoney_Api_ListadoDeServicios
+CREATE PROCEDURE PilMoney_Api_DatosCuentaPeso
+@Id INT
+AS
+SELECT tc.TipoCuenta, tm.TipoMoneda, CONCAT(u.Nombre, ' ', u.Apellido) AS NombreApellido, c.CVU, c.Alias, c.Saldo, c.FechaAlta
+FROM Cuenta c
+INNER JOIN TipoCuenta tc ON c.TipoCuenta = tc.Id
+INNER JOIN TipoMoneda tm ON c.TipoMoneda = tm.Id
+INNER JOIN Usuario u ON c.Usuario = u.Id
+WHERE c.Id = @Id;
+GO
+
+CREATE PROCEDURE PilMoney_Api_UltimosMovimiento
+@Id INT
+AS
+SELECT tp.TipoServicio, S.Periodo, s.CVUServicio, FORMAT(S.FechaVencimiento, 'dd/MM/yyyy') AS Fecha, S.Monto
+FROM Servicio S
+INNER JOIN TipoServicio tp ON s.TipoServicio = tp.Id
+INNER JOIN PagoServicios ps ON ps.Servicio = s.Id
+WHERE ps.CuentaOrigen = @Id
+GO
+
+CREATE PROCEDURE [dbo].[PilMoney_Api_ListadoDeServicios]
 AS 
 SELECT TipoServicio 
 FROM [dbo].[TipoServicio]
 ORDER BY TipoServicio;
-GO
-
 
 /* DML */
 
