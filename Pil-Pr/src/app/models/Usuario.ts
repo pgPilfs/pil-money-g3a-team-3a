@@ -1,4 +1,4 @@
-import { Autenticacion } from "./Autenticacion";
+
 
 export class Usuario{
 
@@ -11,10 +11,10 @@ export class Usuario{
     private Clave:string;
     private FotoPerfil:string;
     private FotoDNI:string;
-    private autenticacion:Autenticacion;
+
 
     constructor(id:number, dni:string, nombre:string, 
-        apellido:string, email:string, nombreUsuario:string, clave:string, fotoPerfil:string, fotoDNI:string, au:Autenticacion){
+        apellido:string, email:string, nombreUsuario:string, clave:string, fotoPerfil:string, fotoDNI:string){
         this.Id = id;
         this.DNI = dni;
         this.Nombre = nombre;
@@ -24,6 +24,5 @@ export class Usuario{
         this.Clave = clave;
         this.FotoPerfil = fotoPerfil;
         this.FotoDNI = fotoDNI;
-        this.autenticacion = au;
     }
 }

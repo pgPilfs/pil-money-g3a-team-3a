@@ -13,6 +13,7 @@ export class LoginService {
   constructor(private http:HttpClient) { }
 
   login(inicioSesion:Login):Observable<any> {
+    console.log(inicioSesion);
     return this.http.post(this.myApiUrl, inicioSesion);
   }
 }

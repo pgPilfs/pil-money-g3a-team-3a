@@ -39,7 +39,7 @@ CREATE TABLE Usuario
 	Apellido VARCHAR(20) NOT NULL,
 	Email VARCHAR(40) NOT NULL,
 	NombreUsuario VARCHAR(20) NOT NULL,
-	Clave VARCHAR(20) NOT NULL,
+	Clave VARCHAR(100) NOT NULL,
 	FotoPerfil VARCHAR(50) NULL,
 	FotoDNI VARCHAR(50) NULL,
 	CONSTRAINT PK_Usuario PRIMARY KEY (Id),
@@ -48,17 +48,7 @@ CREATE TABLE Usuario
 	CONSTRAINT UQ_NombreUsuario UNIQUE (NombreUsuario)
 )
 GO
-CREATE TABLE Autenticacion(
-	Id INT IDENTITY(1,1) NOT NULL,
-	IdUsuario INT NOT NULL,
-	Token VARCHAR(255) NOT NULL,
-	Fecha DATETIME NOT NULL,
-	Estado BIT NOT NULL,
-	CONSTRAINT UQ_Token UNIQUE (Token),
-	CONSTRAINT PK_Autenticacion PRIMARY KEY (Id),
-	CONSTRAINT FK_Autenticacion_Usuario FOREIGN KEY (IdUsuario) REFERENCES Usuario(Id)
-)
-GO
+
 CREATE TABLE Cuenta
 (
 	Id INT IDENTITY(1,1) NOT NULL,
@@ -131,23 +121,44 @@ CREATE PROCEDURE [dbo].[PilMoney_Api_AgregarUsuario]
 @Apellido VARCHAR(20),
 @Email VARCHAR(40),
 @NombreUsuario VARCHAR(20),
-@Clave VARCHAR(20),
+@Clave VARCHAR(100),
 @FotoPerfil VARCHAR(255),
 @FotoDNI VARCHAR(255),
-@IdUsuario INT,
-@Token VARCHAR(255),
-@FechaToken DATETIME,
-@Estado BIT
+@TipoCuenta INT,
+@Usuario INT,
+@TipoMoneda INT,
+@CVU VARCHAR(100),
+@FechaAlta DATETIME,
+@Alias VARCHAR(15),
+@Saldo DECIMAL(18,2)
 AS
-IF @DNI != '' AND @Nombre != '' AND @Apellido != '' AND @Email != '' AND @NombreUsuario != '' AND @Clave != '' AND @Token != '' AND @FechaToken != '' AND @Estado >= 0
+IF @DNI != '' AND @Nombre != '' AND @Apellido != '' AND @Email != '' AND @NombreUsuario != '' AND @Clave != '' 
 BEGIN
 	INSERT INTO [dbo].[Usuario] (DNI, Nombre, Apellido, Email, NombreUsuario, Clave, FotoPerfil, FotoDNI)
 	VALUES (@DNI, @Nombre, @Apellido, @Email, @NombreUsuario, @Clave, @FotoPerfil, @FotoDNI);
+	SET @Usuario = SCOPE_IDENTITY();
 
-	SET @IdUsuario = SCOPE_IDENTITY();
+	IF @TipoCuenta > -1 AND @Usuario > -1 AND @TipoMoneda > -1 AND @CVU != '' AND @FechaAlta != '' AND @Alias != '' AND @Saldo = 0.0
+	BEGIN
+		INSERT INTO [dbo].[Cuenta] (TipoCuenta, Usuario, TipoMoneda, CVU, FechaAlta, Alias, Saldo)
+		VALUES (@TipoCuenta, @Usuario, @TipoMoneda, @CVU, @FechaAlta, @Alias, @Saldo);
+	END
+END
+GO
 
-	INSERT INTO [dbo].[Autenticacion] (IdUsuario, Token, Fecha, Estado) 
-	VALUES(@idUsuario, @Token, @FechaToken, @Estado);
+CREATE PROCEDURE [dbo].[PilMoney_Api_AgregarCuenta]
+@TipoCuenta INT,
+@Usuario INT,
+@TipoMoneda INT,
+@CVU VARCHAR(100),
+@FechaAlta DATETIME,
+@Alias VARCHAR(15),
+@Saldo DECIMAL(18,2)
+AS
+IF @TipoCuenta != '' AND @Usuario != '' AND @TipoMoneda != '' AND @CVU != '' AND @FechaAlta != '' AND @Alias != '' AND @Saldo != ''
+BEGIN
+	INSERT INTO [dbo].[Cuenta] (TipoCuenta, Usuario, TipoMoneda, CVU, FechaAlta, Alias, Saldo)
+	VALUES (@TipoCuenta, @Usuario, @TipoMoneda, @CVU, @FechaAlta, @Alias, @Saldo);
 END
 GO
 
@@ -198,23 +209,14 @@ GO
 
 CREATE PROCEDURE [dbo].[PilMoney_Api_Login]
 @Usuario VARCHAR(20),
-@Password VARCHAR(20)
+@Password VARCHAR(100)
 AS
-SELECT a.Token, u.Id , CONCAT(u.Nombre, ' ', u.Apellido) AS NombreApellido  
+SELECT u.Id , CONCAT(u.Nombre, ' ', u.Apellido) AS NombreApellido  
 FROM Usuario u
-INNER JOIN Autenticacion a ON u.Id = a.Id
 WHERE u.NombreUsuario = @Usuario AND u.Clave = @Password;
 GO
 
-CREATE PROCEDURE [dbo].[PilMoney_Api_Validar_Token]
-@Token VARCHAR(255)
-AS
-SELECT a.Token 
-FROM   Autenticacion a
-WHERE a.Token = @Token;
-GO
-
-CREATE PROCEDURE PilMoney_Api_DatosCuentaPeso
+CREATE PROCEDURE [dbo].[PilMoney_Api_DatosCuentaPeso]
 @Id INT
 AS
 SELECT tc.TipoCuenta, tm.TipoMoneda, CONCAT(u.Nombre, ' ', u.Apellido) AS NombreApellido, c.CVU, c.Alias, c.Saldo, c.FechaAlta
@@ -225,7 +227,7 @@ INNER JOIN Usuario u ON c.Usuario = u.Id
 WHERE c.Id = @Id;
 GO
 
-CREATE PROCEDURE PilMoney_Api_UltimosMovimiento
+CREATE PROCEDURE [dbo].[PilMoney_Api_UltimosMovimiento]
 @Id INT
 AS
 SELECT tp.TipoServicio, S.Periodo, s.CVUServicio, FORMAT(S.FechaVencimiento, 'dd/MM/yyyy') AS Fecha, S.Monto
@@ -240,6 +242,38 @@ AS
 SELECT TipoServicio 
 FROM [dbo].[TipoServicio]
 ORDER BY TipoServicio;
+GO
+
+CREATE PROCEDURE [dbo].[PilMoney_Api_IngresarDinero]
+@TipoTrans INT,
+@CuentaOrigen INT,
+@CuentaDestino VARCHAR(50),
+@Fecha DATETIME,
+@Monto DECIMAL(18,2)
+AS
+IF @TipoTrans != '' AND @CuentaOrigen != '' AND @CuentaDestino != '' AND @Fecha != '' AND @Monto >= 0-0
+BEGIN
+	INSERT INTO [dbo].[Transacciones] (TipoTransaccion, CuentaOrigen, CuentaDestino, FechaTransaccion, Monto)
+	VALUES (@TipoTrans, @CuentaOrigen, @CuentaDestino, @Fecha, @Monto);
+
+	DECLARE @saldoActualizado DECIMAL(18,2);
+	DECLARE @saldoActual DECIMAL(18,2);
+	SET @saldoActual = (SELECT Saldo FROM Cuenta WHERE Id = @CuentaOrigen);
+	SET @saldoActualizado = @Monto + @saldoActual
+
+	UPDATE [dbo].[Cuenta] SET Saldo = @saldoActualizado WHERE Id = @CuentaOrigen;
+END
+GO
+
+CREATE PROCEDURE PilMoney_Api_ListadoDeTransacciones
+@cuentaPropia INT
+AS
+SELECT t.CuentaDestino,  tt.TipoTransaccion, t.FechaTransaccion, t.Monto
+FROM Transacciones t
+INNER JOIN TipoTransacciones tt ON t.TipoTransaccion = tt.Id
+WHERE t.CuentaOrigen = @cuentaPropia
+ORDER BY t.FechaTransaccion
+GO
 
 /* DML */
 
@@ -249,10 +283,8 @@ INSERT INTO TipoMoneda (TipoMoneda) VALUES ('Dolares'),('BitCoin');
 INSERT INTO TipoTransacciones(Tipotransaccion) VALUES ('Transferencia'),('IngresoDinero');
 INSERT INTO TipoCuenta (TipoCuenta) VALUES ('Caja de ahorro en Pesos'), ('Caja de ahorro en Dolares'), ('Cuenta de Criptomonedas');
 INSERT INTO TipoServicio (TipoServicio) VALUES ('Luz'), ('Agua'),('Gas'), ('Internet'), ('Telefono'), ('Cable');
-INSERT INTO Usuario VALUES ('39735440', 'Juan Cruz', 'Pomares', 'juancruz.1600@gmail.com', 'JUANC1997', 'unodostres4', null, null);
-INSERT INTO Usuario VALUES ('39229650', 'Lucia','Grosso', 'lugrosso.96@gmail.com', 'LUGROSSO96', 'lamandamas', null, null);
-INSERT INTO Autenticacion VALUES(1,'93c102c9-7734-47eb-b011-620fbe8d4814', GETDATE(), 1);
-INSERT INTO Autenticacion VALUES(2,'ffb2bc6a-a83f-462c-9727-58e58ab7898e', GETDATE(), 1);
+INSERT INTO Usuario VALUES ('39735440', 'Juan Cruz', 'Pomares', 'juancruz.1600@gmail.com', 'JUANC1997', '846C18C02F7B07211100AEDF84ED26A4325851D34318D55AF240F0A3155027F4', null, null);
+INSERT INTO Usuario VALUES ('39229650', 'Lucia','Grosso', 'lugrosso.96@gmail.com', 'LUGROSSO96', '1A385F1837EE226328FE8E40C8EFCBC18AAF50DBE94B3C1A1B32619BEB95A719', null, null);
 INSERT INTO Cuenta VALUES (1, 1, 1, '0000125478558896325145', '23/08/2021', 'JUAN.C.POMARES', 15000);
 INSERT INTO Cuenta VALUES (1, 2, 1, '0000525696548552215485', '23/08/2021', 'LU.CIA.GROSSO', 100000);
 INSERT INTO Servicio VALUES (1, '03/09/2021', 'Septiembre', '0232521487999632502500', 4500);

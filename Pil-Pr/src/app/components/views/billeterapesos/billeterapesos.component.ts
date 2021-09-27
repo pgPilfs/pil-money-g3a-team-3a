@@ -41,7 +41,7 @@ export class BilleterapesosComponent implements OnInit {
   get f() { return this.form.controls; }
   
   datosCuentaPesos(){
-    let id = [2];
+    let id:any = [sessionStorage.getItem("Id_usuario")];
     this._servicio.datosCuentaEnPesos(id).subscribe(datosCuenta => {
       this.cuenta = datosCuenta;
   },error =>{
@@ -53,9 +53,10 @@ export class BilleterapesosComponent implements OnInit {
 
       this.submitted = true;
       let fecha = new Date();
+      let id:any = [sessionStorage.getItem("Id_usuario")];
       const transaccion = new Transacciones (
         parseInt("0"),
-        parseInt("2"), 
+        parseInt(id), 
         parseInt(this.form.get("CuentaDestino")?.value),
         this.form.get("CuentaOrigen")?.value,
         fecha.toLocaleDateString(),       
@@ -77,7 +78,8 @@ export class BilleterapesosComponent implements OnInit {
   }
 
   ListadoDeTransacciones(){
-    this._transServi.ListadoDeTransacciones().subscribe(datos => {
+    let id:any = [sessionStorage.getItem("Id_usuario")];
+    this._transServi.ListadoDeTransacciones(id).subscribe(datos => {
       this.listadoTrans = datos;
     }, error => {
         this._toastr.error(error, 'Error');

@@ -1,0 +1,9 @@
+----------------------------------
+Cuenta de Lucia: 
+UserName: LUGROSSO96
+Password: lamandamas
+----------------------------------
+Cuenta de Juan: 
+UserName: JUANC1997
+Password: unodostres4
+----------------------------------

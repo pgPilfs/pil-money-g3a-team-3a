@@ -32,10 +32,9 @@ export class DashboardComponent implements OnInit {
     }
     
     datosCuentaPesos(){
-      let id = [2];
+      let id:any = [sessionStorage.getItem("Id_usuario")];
       this._servicio.datosCuentaEnPesos(id).subscribe(datosCuenta => {
         this.cuenta = datosCuenta;
-        sessionStorage.setItem("Usuario", this.cuenta[0]["NombreApellido"]);
     },error =>{
       console.log(error);
     });
@@ -43,7 +42,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ultimosMovimientos(){
-    let id = [2];
+    let id:any = [sessionStorage.getItem("Id_usuario")];
     this._servicio.ultimosMovimientos(id).subscribe(datosUltimoMovimiento => {
       this.ultimos = datosUltimoMovimiento;
   },error =>{

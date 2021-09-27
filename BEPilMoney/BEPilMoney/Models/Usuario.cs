@@ -17,7 +17,6 @@ namespace BEPilMoney.Models
         public string Clave { get; set; }
         public string FotoPerfil { get; set; }
         public string FotoDNI { get; set; }
-        public Autenticacion autenticacion {get; set;}
         #endregion
     }
 }

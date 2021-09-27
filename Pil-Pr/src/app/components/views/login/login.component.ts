@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    if (sessionStorage.getItem("user")){
+    if (localStorage.getItem("token")){
       this.router.navigate(['/dashboard']);
     }
   }
@@ -60,7 +60,9 @@ export class LoginComponent implements OnInit {
         this.form.reset();
       }else{
         // localStorage token
-        localStorage.setItem('token', datos);
+        localStorage.setItem('token', datos[2]);
+        sessionStorage.setItem("Usuario", datos[0]);
+        sessionStorage.setItem("Id_usuario", datos[1]);
         // //Redirecciona al dashboard
         this.router.navigate(['/dashboard']);
       }

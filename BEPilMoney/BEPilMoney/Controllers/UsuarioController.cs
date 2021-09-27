@@ -51,10 +51,6 @@ namespace BEPilMoney.Controllers
         [Route("api/Modificar")]
         public IHttpActionResult PutUsuario([FromBody] Usuario usuario)
         {
-            string token = usuario.autenticacion.Token;
-            int estado = usuario.autenticacion.Estado;
-            if(this.ValidarToken(token, estado) == false)
-                return BadRequest();
             var resp = this._usuario.Modificar(usuario);
             if (resp == 0) return BadRequest();
             return Ok(resp);
@@ -64,10 +60,6 @@ namespace BEPilMoney.Controllers
         [Route("api/Eliminar")]
         public IHttpActionResult DeleteUsuario([FromBody] Usuario usuario)
         {
-            string token = usuario.autenticacion.Token;
-            int estado = usuario.autenticacion.Estado;
-            if (this.ValidarToken(token, estado) == false)
-                return BadRequest();
             var resp = this._usuario.Eliminar(usuario.Id);
             if (resp == 0) return BadRequest();
             return Ok(resp);

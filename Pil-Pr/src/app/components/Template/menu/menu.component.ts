@@ -19,9 +19,10 @@ export class MenuComponent implements OnInit {
 
   cerrarSesion(){
     localStorage.removeItem("token");
-    localStorage.clear();
     sessionStorage.removeItem ("Usuario");
+    sessionStorage.removeItem("Id_usuario");
     sessionStorage.clear();
+    localStorage.clear();
     this.router.navigate(['/']);
   }
 }

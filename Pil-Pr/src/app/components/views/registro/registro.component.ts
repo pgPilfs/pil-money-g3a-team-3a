@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Autenticacion } from 'src/app/models/Autenticacion';
 import { Usuario } from 'src/app/models/Usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -53,9 +52,8 @@ export class RegistroComponent implements OnInit {
       console.log("formulario incompleto")
       return;
     }
-    const au = new Autenticacion();
     const user = new Usuario(-1, this.f.dni.value, this.f.firstName.value, this.f.lastName.value,  this.f.mail.value,
-                    this.f.username.value, this.f.password.value, "", "", au);
+                    this.f.username.value, this.f.password.value, "", "");
 
 
     //Envio de formulario al backend 

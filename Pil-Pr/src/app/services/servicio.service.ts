@@ -21,8 +21,8 @@ export class ServicioService {
     return this.http.post(this.URLapi + this.router, id);
   }
 
-  ultimosMovimientos(token:any): Observable<any>{
+  ultimosMovimientos(id:any): Observable<any>{
     this.router = "UltimosMovimientos";
-    return this.http.post(this.URLapi + this.router, token);
+    return this.http.post(this.URLapi + this.router, id);
   }
 }

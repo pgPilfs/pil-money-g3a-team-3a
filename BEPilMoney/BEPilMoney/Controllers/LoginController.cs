@@ -30,8 +30,10 @@ namespace BEPilMoney.Controllers
             if(resp.Rows.Count > 0)
             {
                 var userName = resp.Rows[0]["NombreApellido"].ToString();
+                var id_usuario = resp.Rows[0]["Id"].ToString();
                 var token = TokenGenerator.GenerateTokenJwt(userName);
-                return Ok(token);
+                string[] datosUsuario = { userName, id_usuario, token };
+                return Ok(datosUsuario);
             } 
             else
             {

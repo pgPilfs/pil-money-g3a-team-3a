@@ -32,7 +32,16 @@ namespace BEPilMoney.Repositorios
 
         public DataTable Detalle(int id)
         {
-            throw new NotImplementedException();
+            DataTable listado = null;
+            string spName = "PilMoney_Api_ListadoDeTransacciones";
+            List<SqlParameter> listParam = new List<SqlParameter>()
+            {
+                new SqlParameter("@cuentaPropia", id),
+            };
+            DAO dao = new DAO();
+            listado = dao.SelectDataBase(spName, listParam);
+            return listado;
+            
         }
 
         public int Eliminar(int id)
@@ -42,15 +51,7 @@ namespace BEPilMoney.Repositorios
 
         public DataTable Listado()
         {
-            DataTable listado = null;
-            string spName = "PilMoney_Api_ListadoDeTransacciones";
-            List<SqlParameter> listParam = new List<SqlParameter>()
-            {
-                new SqlParameter("@cuentaPropia", 2),
-            };
-            DAO dao = new DAO();
-            listado = dao.SelectDataBase(spName, listParam);
-            return listado;
+            throw new NotImplementedException();
         }
 
         public int Modificar(Transaccion obj)

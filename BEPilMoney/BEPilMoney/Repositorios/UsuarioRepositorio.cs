@@ -18,7 +18,8 @@ namespace BEPilMoney.Repositorios
         {
             DataTable listado = null;
             string spName = "PilMoney_Api_ListadoDeUsuarios";
-            listado = HelperSqlServer.GetHelperSqlServer().SelectDataBase(spName);
+            DAO dao = new DAO();
+            listado = dao.SelectDataBase(spName);
             return listado;
         }
 
@@ -30,7 +31,8 @@ namespace BEPilMoney.Repositorios
             {
                 new SqlParameter("@id", id)
             };
-            listado = HelperSqlServer.GetHelperSqlServer().SelectDataBase(spName, listParam);
+            DAO dao = new DAO();
+            listado = dao.SelectDataBase(spName, listParam);
             return listado;
         }
 
@@ -41,15 +43,15 @@ namespace BEPilMoney.Repositorios
             {
                 new SqlParameter("@id", id)
             };
-            int filaAfectada = HelperSqlServer.GetHelperSqlServer().ExecuteSQLSEVER(spName, listParam);
+            DAO dao = new DAO();
+            int filaAfectada = dao.ExecuteSQLSEVER(spName, listParam);
             return filaAfectada;
         }
 
         public int Agregar(Usuario obj)
         {
             string spName = "PilMoney_Api_AgregarUsuario";
-            string token = Guid.NewGuid().ToString();
-            DateTime fecha = DateTime.Now;
+            Cuenta cuenta = new Cuenta(obj.NombreUsuario);
             List<SqlParameter> listParam = new List<SqlParameter>()
             {
                 new SqlParameter("@DNI", obj.DNI),
@@ -60,12 +62,17 @@ namespace BEPilMoney.Repositorios
                 new SqlParameter("@Clave",this.GetSHA256(obj.Clave)),
                 new SqlParameter("@FotoPerfil",obj.FotoPerfil),
                 new SqlParameter("@FotoDNI",obj.FotoDNI),
-                new SqlParameter("@IdUsuario", obj.autenticacion.IdUsuario),
-                new SqlParameter("@Token", token),
-                new SqlParameter("@FechaToken", fecha),
-                new SqlParameter("@Estado", 1),
+                new SqlParameter("@TipoCuenta", cuenta.TipoCuenta),
+                new SqlParameter("@Usuario", cuenta.Usuario),
+                new SqlParameter("@TipoMoneda", cuenta.TipoDeMoneda),
+                new SqlParameter("@CVU", cuenta.CVU),
+                new SqlParameter("@Alias", cuenta.Alias),
+                new SqlParameter("@FechaAlta", cuenta.FechaAlta),
+                new SqlParameter("@Saldo", cuenta.Saldo)
+
             };
-            int filaAfectada = HelperSqlServer.GetHelperSqlServer().ExecuteSQLSEVER(spName, listParam);
+            DAO dao = new DAO();
+            int filaAfectada = dao.ExecuteSQLSEVER(spName, listParam);
             return filaAfectada;
         }
 
@@ -84,7 +91,8 @@ namespace BEPilMoney.Repositorios
                 new SqlParameter("@FotoPerfil",obj.FotoPerfil),
                 new SqlParameter("@FotoDNI",obj.FotoDNI),
             };
-            int filaAfectada = HelperSqlServer.GetHelperSqlServer().ExecuteSQLSEVER(spName, listParam);
+            DAO dao = new DAO();
+            int filaAfectada = dao.ExecuteSQLSEVER(spName, listParam);
             return filaAfectada;
         }
 

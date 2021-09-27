@@ -25,13 +25,5 @@ namespace BEPilMoney.Controllers
 
             return resp;
         }
-
-        public bool ValidarToken(string token, int estado)
-        {
-            bool resp = false;
-            if (token != string.Empty && estado == 1)
-                resp = this._br.ValidarToken(token);
-            return resp;
-        }
     }
 }

@@ -27,11 +27,13 @@ namespace BEPilMoney.Controllers
             return Ok(resp);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("api/ListadoTransacciones")]
-        public IHttpActionResult UltimosMovimientos()
+        public IHttpActionResult UltimosMovimientos([FromBody] string[] id_user)
         {
-            DataTable datos = this._trans.Listado();
+            int id = Convert.ToInt32(id_user[0].ToString());
+            if (id == 0) return BadRequest();
+            DataTable datos = this._trans.Detalle(id);
             return Ok(datos);
         }
     }

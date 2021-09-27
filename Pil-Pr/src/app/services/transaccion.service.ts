@@ -17,8 +17,8 @@ export class TransaccionService {
     return this.http.post(this.URLapi + this.router, trans);
   }
 
-  ListadoDeTransacciones(): Observable<any>{
+  ListadoDeTransacciones(id:any): Observable<any>{
     this.router = "ListadoTransacciones";
-    return this.http.get(this.URLapi + this.router);
+    return this.http.post(this.URLapi + this.router, id);
   }
 }

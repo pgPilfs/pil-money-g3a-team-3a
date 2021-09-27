@@ -18,7 +18,7 @@ namespace BEPilMoney.Repositorios
         public DataTable Login(string usuario, string password)
         {
             string spName = "PilMoney_Api_Login";
-            //password = this.GetSHA256(password);
+            password = this.GetSHA256(password);
             List<SqlParameter> listParam = new List<SqlParameter>()
             {
                 new SqlParameter("@Usuario", usuario),
@@ -27,22 +27,6 @@ namespace BEPilMoney.Repositorios
             DAO dao = new DAO();
             this._dt = dao.SelectDataBase(spName, listParam);
             return this._dt;
-        }
-
-        public bool ValidarToken(string token)
-        {
-            bool resp = false;
-            string spName = "PilMoney_Api_Validar_Token";
-            List<SqlParameter> listParam = new List<SqlParameter>()
-            {
-                new SqlParameter("@Token", token)
-            };
-            string tokenBD = HelperSqlServer.GetHelperSqlServer().SelectDataBase(spName, listParam).Rows[0]["Token"].ToString();
-            if (token == tokenBD)
-            {
-                resp = true;
-            }
-            return resp;
         }
 
         private string GetSHA256(string pass)
