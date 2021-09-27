@@ -41,5 +41,30 @@ namespace BEPilMoney.AccesoADatos
             }
             return dt;
         }
+
+        public int ExecuteSQLSEVER(string spName, List<SqlParameter> parametros)
+        {
+            SqlConnection cnn = new SqlConnection(_cadenaConexion);
+            SqlCommand cmd;
+            int filasAfecctadas = 0;
+            try
+            {
+                cnn.Open();
+                cmd = new SqlCommand(spName, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddRange(parametros.ToArray());
+                filasAfecctadas = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cnn.Close();
+            }
+            return filasAfecctadas;
+        }
+
     }
 }

@@ -115,6 +115,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ServicioController.cs" />
     <Compile Include="Controllers\TipoCuentaController.cs" />
+    <Compile Include="Controllers\TransaccionController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -125,6 +126,7 @@
     <Compile Include="Models\TipoCuenta.cs" />
     <Compile Include="Models\TipoDeMoneda.cs" />
     <Compile Include="Models\TipoServicio.cs" />
+    <Compile Include="Models\Transaccion.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\BaseRepositorio.cs" />
@@ -132,6 +134,7 @@
     <Compile Include="Repositorios\IRepositorio.cs" />
     <Compile Include="Repositorios\ServicioRepositorio.cs" />
     <Compile Include="Repositorios\TipoCuentaRepositorio.cs" />
+    <Compile Include="Repositorios\TransaccionRepositorio.cs" />
     <Compile Include="Repositorios\UsuarioRepositorio.cs" />
     <Compile Include="Security\TokenGenerator.cs" />
     <Compile Include="Security\TokenValidationHandler.cs" />

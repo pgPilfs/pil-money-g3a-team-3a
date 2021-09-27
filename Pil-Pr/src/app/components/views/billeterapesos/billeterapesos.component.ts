@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Cuenta } from 'src/app/models/Cuenta';
 import { Transacciones } from 'src/app/models/Transacciones';
 import { ServicioService } from 'src/app/services/servicio.service';
+import { TransaccionService } from 'src/app/services/transaccion.service';
 
 @Component({
   selector: 'app-billeterapesos',
@@ -16,21 +17,25 @@ export class BilleterapesosComponent implements OnInit {
   form: FormGroup;
   submitted = false;
   cuenta:Cuenta[] = [];
+  listadoTrans:Transacciones[] = [];
   
   constructor(
     private router: Router, 
     private _servicio:ServicioService, 
     private fb : FormBuilder,    
-    private _toastr: ToastrService
+    private _toastr: ToastrService,
+    private _transServi: TransaccionService
     ) {
       this.form = this.fb.group({
         CuentaOrigen: ['', Validators.required],
+        CuentaDestino: ['', Validators.required],
         IngresoMonto: ['', Validators.required]
       });
      }
 
   ngOnInit(): void {
     this.datosCuentaPesos();
+    this.ListadoDeTransacciones();
   }
 
   get f() { return this.form.controls; }
@@ -39,37 +44,44 @@ export class BilleterapesosComponent implements OnInit {
     let id = [2];
     this._servicio.datosCuentaEnPesos(id).subscribe(datosCuenta => {
       this.cuenta = datosCuenta;
-      console.log(this.cuenta);
   },error =>{
     console.log(error);
   });
   }
   
-  ingresarDinero() {
-    console.log(this.f);
-  }
-
   onSubmit() {
 
-    this.submitted = true;
-    let fecha = new Date();
-    let id_cuenta = "0000525696548552215485";
-    const transaccion = new Transacciones (
-      0,
-      2, 
-      this.form.get("CuentaOrigen")?.value,
-      id_cuenta, 
-      fecha,       
-      this.form.get("IngresoMonto")?.value
-      );
-      console.log(transaccion);
+      this.submitted = true;
+      let fecha = new Date();
+      const transaccion = new Transacciones (
+        parseInt("0"),
+        parseInt("2"), 
+        parseInt(this.form.get("CuentaDestino")?.value),
+        this.form.get("CuentaOrigen")?.value,
+        fecha.toLocaleDateString(),       
+        this.form.get("IngresoMonto")?.value
+        );
+  
+      // No hace nada si el formulario es invalido
+      if (this.form.invalid) {
+        return;
+      }
+  
+      this._transServi.IngresarDinero(transaccion).subscribe(datos => {
+        this._toastr.success('Se registro correctamente', 'INGRESO DE DINERO REGISTRADO');
+        this.form.reset();
+        window.location.reload();
+    }, error => {
+        this._toastr.error(error, 'Error');
+    });
+  }
 
-    // No hace nada si el formulario es invalido
-    if (this.form.invalid) {
-      return;
-    }
-
-
+  ListadoDeTransacciones(){
+    this._transServi.ListadoDeTransacciones().subscribe(datos => {
+      this.listadoTrans = datos;
+    }, error => {
+        this._toastr.error(error, 'Error');
+    });
   }
   
 }

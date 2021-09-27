@@ -12,8 +12,8 @@ using System.Web.Http.Cors;
 
 namespace BEPilMoney.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [AllowAnonymous]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : BaseController
     {
         [HttpPost]

@@ -5,7 +5,7 @@ export class Transacciones{
         public TipoTransaccion: number,
         public CuentaOrigen: number,
         public CuentaDestino: string,
-        public FechaTransaccion: Date,
+        public FechaTransaccion: string,
         public Monto: number    
     ){}
 }

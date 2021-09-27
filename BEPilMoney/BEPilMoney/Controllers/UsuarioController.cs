@@ -12,6 +12,7 @@ using BEPilMoney.Repositorios;
 
 namespace BEPilMoney.Controllers
 {
+    [AllowAnonymous]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
 
     public class UsuarioController : BaseController
