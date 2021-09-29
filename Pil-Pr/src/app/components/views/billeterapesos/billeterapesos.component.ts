@@ -18,6 +18,7 @@ export class BilleterapesosComponent implements OnInit {
   submitted = false;
   cuenta:Cuenta[] = [];
   listadoTrans:Transacciones[] = [];
+  id_cuenta:number = 0;
   
   constructor(
     private router: Router, 
@@ -54,26 +55,28 @@ export class BilleterapesosComponent implements OnInit {
       this.submitted = true;
       let fecha = new Date();
       let id:any = [sessionStorage.getItem("Id_usuario")];
+      this.id_cuenta = parseInt(id);
+      console.log(this.id_cuenta);
       const transaccion = new Transacciones (
         parseInt("0"),
-        parseInt(id), 
-        parseInt(this.form.get("CuentaDestino")?.value),
+        parseInt("2"),
+        this.id_cuenta, 
         this.form.get("CuentaOrigen")?.value,
         fecha.toLocaleDateString(),       
         this.form.get("IngresoMonto")?.value
         );
-  
+      console.log(transaccion);
       // No hace nada si el formulario es invalido
       if (this.form.invalid) {
         return;
       }
-  
       this._transServi.IngresarDinero(transaccion).subscribe(datos => {
         this._toastr.success('Se registro correctamente', 'INGRESO DE DINERO REGISTRADO');
-        this.form.reset();
-        window.location.reload();
+        setTimeout(() =>{
+          window.location.reload();
+        }, 2000);
     }, error => {
-        this._toastr.error(error, 'Error');
+        this._toastr.error(error.message, 'Error');
     });
   }
 

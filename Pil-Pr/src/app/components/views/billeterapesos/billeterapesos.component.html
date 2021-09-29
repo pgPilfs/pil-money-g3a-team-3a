@@ -46,11 +46,11 @@
                 <p class="card-text">CVU: {{ cuenta[0]?.CVU }}</p>
               </div>
               <div class="card-footer">
-                <button type="button" class="btn btn-sm btn-info ml-3 opacity" data-toggle="modal"
+                <button type="button" class="btn btn-info ml-3 opacity" data-toggle="modal"
                   data-target="#IngresoDinero">
                   Ingresar dinero
                 </button>
-                <a href="#" class="btn btn-sm btn-success ml-5 opacity">Transferir dinero</a>
+                <a href="#" class="btn btn-success ml-5 opacity">Transferir dinero</a>
               </div>
             </div>
           </div>
@@ -121,7 +121,7 @@
                                     <span class="input-group-text bg-gradient-primary text-white">CVU</span>
                                   </div>
                                   <select class="form-control form-control-lg" formControlName='CuentaDestino'>
-                                    <option [ngValue]="2">{{ cuenta[0]?.CVU }}</option>
+                                    <option [ngValue]="id_cuenta">{{ cuenta[0]?.CVU }}</option>
                                   </select>
                                 </div>
                               </div>

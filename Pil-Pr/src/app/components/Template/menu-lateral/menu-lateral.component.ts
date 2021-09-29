@@ -20,7 +20,6 @@ export class MenuLateralComponent implements OnInit {
     sessionStorage.clear();
     localStorage.clear();
     this.router.navigate(['/']);
-    this.router.navigate(['/']);
   }
 
 }

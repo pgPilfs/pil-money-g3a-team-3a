@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { JwtInterceptorInterceptor } from './Security/jwt-interceptor.interceptor';
 import { BilleterapesosComponent } from './components/views/billeterapesos/billeterapesos.component';
+import { PerfilComponent } from './components/views/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BilleterapesosComponent } from './components/views/billeterapesos/bille
     MenuComponent,
     MenuLateralComponent,
     PiePaginaComponent,
-    BilleterapesosComponent
+    BilleterapesosComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

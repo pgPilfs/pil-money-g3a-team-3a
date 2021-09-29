@@ -92,7 +92,7 @@ CREATE TABLE Transacciones
 	Id INT IDENTITY(1,1) NOT NULL,
 	TipoTransaccion INT NOT NULL,
 	CuentaOrigen INT NOT NULL,
-	CuentaDestino INT NOT NULL,
+	CuentaDestino VARCHAR(50) NOT NULL,
 	FechaTransaccion DATETIME NOT NULL,
 	Monto DECIMAL(18,2) NOT NULL,
 	CONSTRAINT PK_Transacciones PRIMARY KEY (Id),
