@@ -15,7 +15,9 @@ import { TransaccionService } from 'src/app/services/transaccion.service';
 export class BilleterapesosComponent implements OnInit {
 
   form: FormGroup;
+  // form2: FormGroup;
   submitted = false;
+  // submitted2 = false;
   cuenta:Cuenta[] = [];
   listadoTrans:Transacciones[] = [];
   id_cuenta:number = 0;
@@ -28,11 +30,14 @@ export class BilleterapesosComponent implements OnInit {
     private _transServi: TransaccionService
     ) {
       this.form = this.fb.group({
-        CuentaOrigen: ['', Validators.required],
+        CuentaOrigen: ['', [Validators.required, Validators.minLength(22), Validators.maxLength(22)]],
         CuentaDestino: ['', Validators.required],
-        IngresoMonto: ['', Validators.required]
+        IngresoMonto: ['', Validators.required],
+        CuentaDestino2: ['', [Validators.required, Validators.minLength(22), Validators.maxLength(22)]],
+        CuentaOrigen2: ['', Validators.required],
+        IngresoMonto2: ['', Validators.required]
       });
-     }
+    }
 
   ngOnInit(): void {
     this.datosCuentaPesos();
@@ -40,6 +45,7 @@ export class BilleterapesosComponent implements OnInit {
   }
 
   get f() { return this.form.controls; }
+  // get f2() { return this.form2.controls; }
   
   datosCuentaPesos(){
     let id:any = [sessionStorage.getItem("Id_usuario")];
@@ -88,5 +94,15 @@ export class BilleterapesosComponent implements OnInit {
         this._toastr.error(error, 'Error');
     });
   }
+
+  Transferencias(){
+    this.submitted = true;
+    console.log("estoy en el método");
+  }
+
+  // limpiar(){
+  //   this.form.clearValidators();
+  //   console.log("estoy en el método");
+  // }
   
 }

@@ -1,0 +1,29 @@
+.margenes {
+    margin-top: 3.5rem;
+ }
+ .titulo-card-movimientos {
+    margin-left:23px;
+    margin-top:10px;
+    color:white;
+ }
+ .ver-mas {
+    text-decoration: none;
+    color: white;
+    padding: 14px 0px;
+ }
+ .pagar {
+    /* text-decoration: none; */
+    color: rgb(45, 17, 121);
+    font-size: 14px !important;
+    padding: 0px !important;
+ }
+ 
+ .ver-mas:hover {
+    color: black
+ }
+ 
+ .list-group-item-hover:nth-child(odd){
+    background-color: rgba(242, 243, 244, .4);
+    cursor: pointer;
+ }
+ 

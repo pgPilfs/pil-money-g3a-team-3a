@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BilleterapesosComponent } from './components/views/billeterapesos/billeterapesos.component';
 import { DashboardComponent } from './components/views/dashboard/dashboard.component';
 import { LoginComponent } from './components/views/login/login.component';
+import { PagoserviciosComponent } from './components/views/pagoservicios/pagoservicios.component';
 import { PerfilComponent } from './components/views/perfil/perfil.component';
 import { RegistroComponent } from './components/views/registro/registro.component';
 import { UsenGuardGuard } from './Security/usen-guard.guard';
@@ -28,6 +29,11 @@ const routes: Routes = [
   },
   {
     path:"perfil",component: PerfilComponent, 
+    pathMatch:"full",
+    canActivate: [UsenGuardGuard]
+  },
+  {
+    path:"pagoservicios",component: PagoserviciosComponent, 
     pathMatch:"full",
     canActivate: [UsenGuardGuard]
   },

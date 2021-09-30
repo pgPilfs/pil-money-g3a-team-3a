@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Cuenta } from 'src/app/models/Cuenta';
-import { TipoServicio } from 'src/app/models/TipoServicio';
+import { Transacciones } from 'src/app/models/Transacciones';
 import { ServicioService } from 'src/app/services/servicio.service';
+import { TransaccionService } from 'src/app/services/transaccion.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,30 +13,30 @@ import { ServicioService } from 'src/app/services/servicio.service';
 })
 export class DashboardComponent implements OnInit {
 
-  listadoServicio:TipoServicio[] = [];
   cuenta:Cuenta[] = [];
   ultimos:any[] = [];
+  listadoTrans:Transacciones[] = [];
+  listadoFinal:any[] = [];
 
-  constructor(private router: Router, private _servicio:ServicioService) { }
+  constructor(
+    private router: Router,
+    private _servicio:ServicioService,
+    private _toastr: ToastrService,
+    private _transServi: TransaccionService,
+    ) { }
 
   ngOnInit(): void {
-    this.datosCuentaPesos();
-    this.listado();
+    this.datosCuentaPesos();    
     this.ultimosMovimientos();
-  }
-  
-  listado(){
-      this._servicio.listadoTipoServicio().subscribe(datosServicio => {
-        this.listadoServicio = datosServicio;
-      },error =>{
-        console.log(error);
-      });
-    }
+    console.log(this.listadoFinal);
     
-    datosCuentaPesos(){
+  }  
+ 
+  datosCuentaPesos(){
       let id:any = [sessionStorage.getItem("Id_usuario")];
+      console.log(id);
       this._servicio.datosCuentaEnPesos(id).subscribe(datosCuenta => {
-        this.cuenta = datosCuenta;
+        this.cuenta = datosCuenta;           
     },error =>{
       console.log(error);
     });
@@ -45,10 +47,20 @@ export class DashboardComponent implements OnInit {
     let id:any = [sessionStorage.getItem("Id_usuario")];
     this._servicio.ultimosMovimientos(id).subscribe(datosUltimoMovimiento => {
       this.ultimos = datosUltimoMovimiento;
+      this.listadoFinal.push(this.ultimos);
   },error =>{
     console.log(error);
   });
-  
 }
 
+  ListadoDeTransacciones(){
+    let id:any = [sessionStorage.getItem("Id_usuario")];
+    this._transServi.ListadoDeTransacciones(id).subscribe(datos => {
+      this.listadoTrans = datos;
+      this.listadoFinal.push(this.listadoTrans);
+    }, error => {
+        this._toastr.error(error, 'Error');
+    });
+  }
+  
 }

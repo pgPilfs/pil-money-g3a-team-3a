@@ -1,0 +1,118 @@
+<div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+    <app-menu ></app-menu>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_sidebar.html -->
+      <app-menu-lateral></app-menu-lateral>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper margenes">
+          <div class="page-header">
+            <h3 class="page-title">
+              <span
+                class="page-title-icon text-white mr-2"
+                style="background: linear-gradient(to right, #494889, #292874)"
+              >
+                <i class="mdi mdi-deskphone"></i>
+              </span>
+              Pago de servicios
+            </h3>
+            <nav aria-label="breadcrumb">
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                  <span></span>
+                </li>
+              </ul>
+            </nav>
+          </div>      
+          <div class="row">
+          <!-- LISTADO SERVICIOS -->
+            <div class="col-md-4">
+              <div class="card">
+                <div
+                  class="card-header"
+                  style="background: linear-gradient(to right, #494889, #292874)"
+                >
+                  <h4 class="titulo-card-movimientos float-left">
+                    Pagar mis servicios
+                  </h4>
+                  >
+                </div>
+  
+                <div class="card-body">
+                  <ul class="list-group list-group-flush">
+                    <li *ngFor="let dato of listadoServicio"
+                      class="
+                        list-group-item list-group-item-hover
+                        d-flex
+                        justify-content-between
+                        align-items-center
+                      "
+                    >
+                      <h6>{{dato.TipoServicio}}</h6>
+                      <a href="#" class="btn btn-link float-right pagar">
+                        PAGAR</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- CARD DINERO DISPONIBLE -->
+            <div class="col-md-8">
+              <div class="card mb-4">
+                <div class="card-header">
+                  <h5 class="float-left">Dinero disponible</h5>
+                </div>
+                <div class="card-body">
+                  <h2 class="card-title texto-peso">
+                    <i class=""></i>{{ cuenta[0]?.Saldo | currency: "AR":"$":"1.2-2" }}
+                  </h2>
+                  <hr />
+                  <p class="card-text">CVU: {{ cuenta[0]?.CVU }}</p>
+                </div>
+              </div> 
+         <!-- LISTADO PAGOS SERVICIOS -->
+              <div class="card">
+              <div
+                class="card-header"
+              >
+                <div>
+                  <h5 class="card-movimientos float-left">
+                    Mis servición pagados
+                  </h5>
+                  <!-- <a href="#" class="btn btn-link float-right ver-mas">
+                    Ver mas</a -->
+                  </div>
+              </div>
+              <div class="card-body">
+                <ul class="list-group list-group-flush">
+                  <li *ngFor="let dato of ultimos"
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-center
+                    "
+                  >
+                    {{dato.TipoServicio}}
+                    <span>-{{ dato.Monto | currency:'AR':'$':'1.2-2'}}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            </div>              
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <app-pie-pagina></app-pie-pagina>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  
