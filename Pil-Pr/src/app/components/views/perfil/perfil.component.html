@@ -35,12 +35,35 @@
             </nav>
           </div>
           <div class="row">
-            
-          </div>
+            <div class="col-md-2">
+              <img src="../../../../assets/dist/images/perfil/userDefault.png" width="200" class="img-thumbnail" alt="...">
+            </div>
+            <div class="col-md-6">
+              <form class="forms-sample">
+                <div class="form-group">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" class="form-control" id="nombre" placeholder="Nombre" value="{{Usuario[0].Nombre}}">
+                </div>
+                <div class="form-group">
+                  <label for="apellido">Apellido</label>
+                  <input type="text" class="form-control" id="apellido" placeholder="Apellido" value="{{Usuario[0].Apellido}}">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Email" value="{{Usuario[0].Email}}">
+                </div>
+                <div class="form-group">
+                  <label for="foto">Imagen</label>
+                  <input type="file" class="form-control" id="foto">
+                </div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Guardar</button>
+                <button class="btn btn-light" routerLink="/dashboard">Cancelar</button>
+              </form>
+            </div>
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
-        <app-pie-pagina></app-pie-pagina>
+        <!-- <app-pie-pagina></app-pie-pagina> -->
         <!-- partial -->
       </div>
       <!-- main-panel ends -->

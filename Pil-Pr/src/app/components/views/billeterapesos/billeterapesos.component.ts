@@ -15,9 +15,9 @@ import { TransaccionService } from 'src/app/services/transaccion.service';
 export class BilleterapesosComponent implements OnInit {
 
   form: FormGroup;
-  // form2: FormGroup;
+  form2: FormGroup;
   submitted = false;
-  // submitted2 = false;
+  submitted2 = false;
   cuenta:Cuenta[] = [];
   listadoTrans:Transacciones[] = [];
   id_cuenta:number = 0;
@@ -25,14 +25,17 @@ export class BilleterapesosComponent implements OnInit {
   constructor(
     private router: Router, 
     private _servicio:ServicioService, 
-    private fb : FormBuilder,    
+    private fb : FormBuilder,
+    private fb2 : FormBuilder,    
     private _toastr: ToastrService,
     private _transServi: TransaccionService
     ) {
       this.form = this.fb.group({
         CuentaOrigen: ['', [Validators.required, Validators.minLength(22), Validators.maxLength(22)]],
         CuentaDestino: ['', Validators.required],
-        IngresoMonto: ['', Validators.required],
+        IngresoMonto: ['', Validators.required]
+      });
+      this.form2 = this.fb2.group({
         CuentaDestino2: ['', [Validators.required, Validators.minLength(22), Validators.maxLength(22)]],
         CuentaOrigen2: ['', Validators.required],
         IngresoMonto2: ['', Validators.required]
@@ -45,7 +48,7 @@ export class BilleterapesosComponent implements OnInit {
   }
 
   get f() { return this.form.controls; }
-  // get f2() { return this.form2.controls; }
+  get f2() { return this.form2.controls; }
   
   datosCuentaPesos(){
     let id:any = [sessionStorage.getItem("Id_usuario")];
@@ -96,13 +99,11 @@ export class BilleterapesosComponent implements OnInit {
   }
 
   Transferencias(){
-    this.submitted = true;
-    console.log("estoy en el método");
+    this.submitted2 = true;
   }
 
-  // limpiar(){
-  //   this.form.clearValidators();
-  //   console.log("estoy en el método");
-  // }
+  limpiar(){
+    console.log(this.form.clearValidators);
+  }
   
 }

@@ -15,4 +15,8 @@ export class UsuarioService {
   agregarUsuario(usuario:Usuario):Observable<any>{
     return this.http.post(this.myApiUrl + "Registrar", usuario);
   }
+
+  detalleUsuario(id:number):Observable<any>{
+    return this.http.get(this.myApiUrl + "DetalleUsuario/" + id);
+  }
 }

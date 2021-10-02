@@ -47,11 +47,11 @@
               </div>
               <div class="card-footer">
                 <button type="button" class="btn btn-info ml-3 opacity" data-toggle="modal"
-                  data-target="#IngresoDinero">
+                  data-target="#IngresoDinero" (click)="limpiar()">
                   Ingresar dinero
                 </button>
                 <button type="button" class="btn btn-success ml-3 opacity" data-toggle="modal"
-                data-target="#TransferirDinero">
+                data-target="#TransferirDinero" (click)="limpiar()">
                 Transferir dinero
               </button>
               </div>
@@ -179,7 +179,7 @@
                     <div class="col-md-12 grid-margin stretch-card">
                       <div class="card">
                         <div class="card-body">
-                          <form class="forms-sample" [formGroup]="form" (ngSubmit)="Transferencias()">
+                          <form class="forms-sample" [formGroup]="form2" (ngSubmit)="Transferencias()">
                             <!--Select-->
                               <div class="form-group">
                                 <label for="exampleFormControlSelect1">Cuenta de origen</label>                             
@@ -201,13 +201,13 @@
                                   </div>
                                   <input type="text" class="form-control" maxlength="22" formControlName="CuentaDestino2"
                                     aria-label="Amount (to the nearest dollar)" [ngClass]="{
-                                    'is-invalid': submitted && f.CuentaDestino2.errors
+                                    'is-invalid': submitted2 && f2.CuentaDestino2.errors
                                   }" required />
-                                  <div *ngIf="submitted && f.CuentaDestino2.errors" class="invalid-feedback">
-                                    <div *ngIf="f.CuentaDestino2.errors.required">
+                                  <div *ngIf="submitted2 && f2.CuentaDestino2.errors" class="invalid-feedback">
+                                    <div *ngIf="f2.CuentaDestino2.errors.required">
                                       El CVU de destino es requerido
                                     </div>
-                                    <div *ngIf="f.CuentaDestino2.errors.minlength">
+                                    <div *ngIf="f2.CuentaDestino2.errors.minlength">
                                       El CVU de origen debe tener 22 dígitos
                                     </div>
                                   </div>
@@ -222,17 +222,17 @@
                                   </div>
                                   <input type="text" class="form-control" formControlName="IngresoMonto2"
                                     aria-label="Amount (to the nearest dollar)" [ngClass]="{
-                                    'is-invalid': submitted && f.IngresoMonto2.errors
+                                    'is-invalid': submitted2 && f2.IngresoMonto2.errors
                                   }" required />
-                                  <div *ngIf="submitted && f.IngresoMonto2.errors" class="invalid-feedback">
-                                    <div *ngIf="f.IngresoMonto2.errors.required">
+                                  <div *ngIf="submitted2 && f2.IngresoMonto2.errors" class="invalid-feedback">
+                                    <div *ngIf="f2.IngresoMonto2.errors.required">
                                       Coloque el monto que desea transferir
                                     </div>
                                   </div>
                                 </div>
                               </div>
                               <div class="float-right">
-                                <button class="btn btn-light mr-2" data-dismiss="modal">Cancelar</button>        
+                                <button type="button" class="btn btn-light mr-2" data-dismiss="modal">Cancelar</button>        
                                 <button type="submit" class="btn btn-gradient-primary">
                                   Confirmar
                                 </button>

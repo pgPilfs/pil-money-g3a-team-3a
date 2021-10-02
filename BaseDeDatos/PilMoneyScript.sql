@@ -275,6 +275,7 @@ WHERE t.CuentaOrigen = @cuentaPropia
 ORDER BY t.FechaTransaccion
 GO
 
+
 /* DML */
 
 /* Insertar Datos */
