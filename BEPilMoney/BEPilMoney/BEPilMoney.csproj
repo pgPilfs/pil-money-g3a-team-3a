@@ -122,6 +122,7 @@
     </Compile>
     <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\PagoServicio.cs" />
     <Compile Include="Models\TipoCuenta.cs" />
     <Compile Include="Models\TipoDeMoneda.cs" />
     <Compile Include="Models\TipoServicio.cs" />

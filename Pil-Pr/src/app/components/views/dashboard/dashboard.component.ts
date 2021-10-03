@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   ultimos:any[] = [];
   listadoTrans:Transacciones[] = [];
   listadoFinal:any[] = [];
+  cantidadMovimientos: any;
 
   constructor(
     private router: Router,
@@ -28,8 +29,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.datosCuentaPesos();    
     this.ultimosMovimientos();
-    console.log(this.listadoFinal);
-    
+    this.ListadoDeTransacciones();
+     
   }  
  
   datosCuentaPesos(){
@@ -57,7 +58,8 @@ export class DashboardComponent implements OnInit {
     let id:any = [sessionStorage.getItem("Id_usuario")];
     this._transServi.ListadoDeTransacciones(id).subscribe(datos => {
       this.listadoTrans = datos;
-      this.listadoFinal.push(this.listadoTrans);
+      this.cantidadMovimientos = this.listadoTrans.length;
+      console.log(this.cantidadMovimientos);
     }, error => {
         this._toastr.error(error, 'Error');
     });

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using BEPilMoney.AccesoADatos;
@@ -14,6 +15,23 @@ namespace BEPilMoney.Repositorios
         public int Agregar(TipoServicio obj)
         {
             throw new NotImplementedException();
+        }
+
+        public int PagoServicio(PagoServicio obj)
+        {
+            string spName = "PilMoney_Api_PagoServicio";
+            obj.FechaPago = DateTime.Now;
+            List<SqlParameter> listParam = new List<SqlParameter>()
+            {
+                new SqlParameter("@Servicio", obj.Servicio),
+                new SqlParameter("@CuentaOrigen",obj.CuentaOrigen),
+                new SqlParameter("@CVUServicio", obj.CVUServicio),
+                new SqlParameter("@FechaPago",obj.FechaPago),
+                new SqlParameter("@Monto",obj.Monto)
+            };
+            DAO dao = new DAO();
+            int filaAfectada = dao.ExecuteSQLSEVER(spName, listParam);
+            return filaAfectada;
         }
 
         public DataTable Detalle(int id)

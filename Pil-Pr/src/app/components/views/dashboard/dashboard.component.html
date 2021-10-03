@@ -51,7 +51,7 @@
                   <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                 </h4>
                 <h2 class="mb-5">{{cuenta[0]?.Saldo | currency:'AR':'$':'1.2-2'}}</h2>
-                <h6 class="card-text">0 Movimiento registrado</h6>
+                <h6 class="card-text">{{cantidadMovimientos}} Movimiento registrado</h6>
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@
               </div>
               <div class="card-body">
                 <ul class="list-group list-group-flush">
-                  <li *ngFor="let dato of ultimos"
+                  <li *ngFor="let item of listadoTrans"
                     class="
                       list-group-item
                       d-flex
@@ -121,8 +121,9 @@
                       align-items-center
                     "
                   >
-                    {{dato.TipoServicio}}
-                    <span>-{{ dato.Monto | currency:'AR':'$':'1.2-2'}}</span>
+                  <span>{{item.TipoTransaccion}}</span>
+                  <span>{{item.FechaTransaccion | date:'dd-MM-yyyy'}}</span>
+                  <span>{{ item.Monto | currency:'AR':'$':'1.2-2'}}</span>
                   </li>
                 </ul>
               </div>

@@ -21,7 +21,8 @@ export class BilleterapesosComponent implements OnInit {
   cuenta:Cuenta[] = [];
   listadoTrans:Transacciones[] = [];
   id_cuenta:number = 0;
-  
+  signo: String = ""; 
+ 
   constructor(
     private router: Router, 
     private _servicio:ServicioService, 
@@ -45,6 +46,7 @@ export class BilleterapesosComponent implements OnInit {
   ngOnInit(): void {
     this.datosCuentaPesos();
     this.ListadoDeTransacciones();
+    // this.obtenerSigno();
   }
 
   get f() { return this.form.controls; }
@@ -65,7 +67,6 @@ export class BilleterapesosComponent implements OnInit {
       let fecha = new Date();
       let id:any = [sessionStorage.getItem("Id_usuario")];
       this.id_cuenta = parseInt(id);
-      console.log(this.id_cuenta);
       const transaccion = new Transacciones (
         parseInt("0"),
         parseInt("2"),
@@ -74,7 +75,6 @@ export class BilleterapesosComponent implements OnInit {
         fecha.toLocaleDateString(),       
         this.form.get("IngresoMonto")?.value
         );
-      console.log(transaccion);
       // No hace nada si el formulario es invalido
       if (this.form.invalid) {
         return;
@@ -100,10 +100,38 @@ export class BilleterapesosComponent implements OnInit {
 
   Transferencias(){
     this.submitted2 = true;
+    let fecha = new Date();
+      let id:any = [sessionStorage.getItem("Id_usuario")];
+      this.id_cuenta = parseInt(id);
+        const transaccion = new Transacciones (
+        parseInt("0"),
+        parseInt("1"),
+        this.id_cuenta, 
+        this.form2.get("CuentaOrigen2")?.value,
+        fecha.toLocaleDateString(),       
+        this.form2.get("IngresoMonto2")?.value
+        );
+        console.log(transaccion);
+        // No hace nada si el formulario es invalido
+      if (this.form2.invalid) {
+        return;
+      }
+      this._transServi.TransferirDinero(transaccion).subscribe(datos => {
+        this._toastr.success('Se registro correctamente', 'TRANSFERENCIA DE DINERO REGISTRADA');
+        setTimeout(() =>{
+          window.location.reload();
+        }, 2000);
+    }, error => {
+        this._toastr.error(error.message, 'Error');
+    });
   }
 
   limpiar(){
     console.log(this.form.clearValidators);
   }
   
+  // obtenerSigno(){
+  //   console.log(this.ListadoDeTransacciones());
+  // }
 }
+

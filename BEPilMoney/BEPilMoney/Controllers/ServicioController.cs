@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using BEPilMoney.Models;
 using BEPilMoney.Repositorios;
 
 namespace BEPilMoney.Controllers
@@ -24,6 +25,15 @@ namespace BEPilMoney.Controllers
             DataTable listadoTipoServicio = _servicio.ListadoTipoServicio();
             if (listadoTipoServicio != null) this.BadRequest();
             return this.Ok(listadoTipoServicio);
+        }
+
+        [HttpPost]
+        [Route("api/PagoServicio")]
+        public IHttpActionResult PagoServicio([FromBody] PagoServicio pago)
+        {
+            var resp = this._servicio.PagoServicio(pago);
+            if (resp == 0) return BadRequest();
+            return Ok(resp);
         }
     }
 }

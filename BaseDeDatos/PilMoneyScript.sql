@@ -265,7 +265,7 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE PilMoney_Api_ListadoDeTransacciones
+CREATE PROCEDURE [dbo].[PilMoney_Api_ListadoDeTransacciones]
 @cuentaPropia INT
 AS
 SELECT t.CuentaDestino,  tt.TipoTransaccion, t.FechaTransaccion, t.Monto
@@ -273,6 +273,48 @@ FROM Transacciones t
 INNER JOIN TipoTransacciones tt ON t.TipoTransaccion = tt.Id
 WHERE t.CuentaOrigen = @cuentaPropia
 ORDER BY t.FechaTransaccion
+GO
+
+CREATE PROCEDURE [dbo].[PilMoney_Api_TransferirDinero]
+@TipoTrans INT,
+@CuentaOrigen INT,
+@CuentaDestino VARCHAR(50),
+@Fecha DATETIME,
+@Monto DECIMAL(18,2)
+AS
+IF @TipoTrans != '' AND @CuentaOrigen != '' AND @CuentaDestino != '' AND @Fecha != '' AND @Monto >= 0-0
+BEGIN
+	INSERT INTO [dbo].[Transacciones] (TipoTransaccion, CuentaOrigen, CuentaDestino, FechaTransaccion, Monto)
+	VALUES (@TipoTrans, @CuentaOrigen, @CuentaDestino, @Fecha, @Monto);
+
+	DECLARE @saldoActualizado DECIMAL(18,2);
+	DECLARE @saldoActual DECIMAL(18,2);
+	SET @saldoActual = (SELECT Saldo FROM Cuenta WHERE Id = @CuentaOrigen);
+	SET @saldoActualizado = @saldoActual - @Monto 
+
+	UPDATE [dbo].[Cuenta] SET Saldo = @saldoActualizado WHERE Id = @CuentaOrigen;
+END
+GO
+
+CREATE PROCEDURE [dbo].[PilMoney_Api_PagoServicio]
+@Servicio INT,
+@CuentaOrigen INT,
+@CVUServicio VARCHAR(20),
+@FechaPago DATETIME,
+@Monto DECIMAL(18,2)
+AS
+IF @Servicio != '' AND @CuentaOrigen != '' AND @CVUServicio != '' AND @FechaPago != '' AND @Monto >= 0-0
+BEGIN
+	INSERT INTO [dbo].[PagoServicios] (Servicio, CuentaOrigen, CVUServicio, FechaPago, Monto)
+	VALUES (@Servicio, @CuentaOrigen, @CVUServicio, @FechaPago, @Monto);
+
+	DECLARE @saldoActualizado DECIMAL(18,2);
+	DECLARE @saldoActual DECIMAL(18,2);
+	SET @saldoActual = (SELECT Saldo FROM Cuenta WHERE Id = @CuentaOrigen);
+	SET @saldoActualizado = @saldoActual - @Monto 
+
+	UPDATE [dbo].[Cuenta] SET Saldo = @saldoActualizado WHERE Id = @CuentaOrigen;
+END
 GO
 
 

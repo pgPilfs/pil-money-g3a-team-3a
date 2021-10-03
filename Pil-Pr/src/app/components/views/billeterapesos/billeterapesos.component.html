@@ -78,7 +78,7 @@
                   >
                     <span>{{item.TipoTransaccion}}</span>
                     <span>{{item.FechaTransaccion | date:'dd-MM-yyyy'}}</span>
-                    <span>+{{ item.Monto | currency:'AR':'$':'1.2-2'}}</span>
+                    <span>{{ item.Monto | currency:'AR':'$':'1.2-2'}}</span>
                   </li>
                 </ul>
               </div>
@@ -187,7 +187,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text bg-gradient-primary text-white">CVU</span>
                                   </div>
-                                  <select class="form-control form-control-lg" formControlName='CuentaOrigen2'>
+                                  <select class="form-control form-control-lg" formControlName='CuentaDestino2'>
                                     <option [ngValue]="id_cuenta">{{ cuenta[0]?.CVU }}</option>
                                   </select>
                                 </div>
@@ -199,7 +199,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text bg-gradient-primary text-white">CVU</span>
                                   </div>
-                                  <input type="text" class="form-control" maxlength="22" formControlName="CuentaDestino2"
+                                  <input type="text" class="form-control" maxlength="22" formControlName="CuentaOrigen2"
                                     aria-label="Amount (to the nearest dollar)" [ngClass]="{
                                     'is-invalid': submitted2 && f2.CuentaDestino2.errors
                                   }" required />

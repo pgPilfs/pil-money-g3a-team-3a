@@ -30,6 +30,24 @@ namespace BEPilMoney.Repositorios
             return filaAfectada;
         }
 
+        public int Transferir(Transaccion obj)
+        {
+            string spName = "PilMoney_Api_TransferirDinero";
+            obj.Fecha = DateTime.Now;
+            obj.TipoTrans = 1;
+            List<SqlParameter> listParam = new List<SqlParameter>()
+            {
+                new SqlParameter("@TipoTrans", obj.TipoTrans),
+                new SqlParameter("@CuentaOrigen",obj.CuentaOrigen),
+                new SqlParameter("@CuentaDestino", obj.CuentaDestino),
+                new SqlParameter("@Fecha",obj.Fecha),
+                new SqlParameter("@Monto",obj.Monto)
+            };
+            DAO dao = new DAO();
+            int filaAfectada = dao.ExecuteSQLSEVER(spName, listParam);
+            return filaAfectada;
+        }
+
         public DataTable Detalle(int id)
         {
             DataTable listado = null;

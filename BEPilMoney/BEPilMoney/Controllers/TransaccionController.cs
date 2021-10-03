@@ -28,6 +28,15 @@ namespace BEPilMoney.Controllers
         }
 
         [HttpPost]
+        [Route("api/TransferirDinero")]
+        public IHttpActionResult TransferirDinero([FromBody] Transaccion tran)
+        {
+            var resp = this._trans.Transferir(tran);
+            if (resp == 0) return BadRequest();
+            return Ok(resp);
+        }
+
+        [HttpPost]
         [Route("api/ListadoTransacciones")]
         public IHttpActionResult UltimosMovimientos([FromBody] string[] id_user)
         {
