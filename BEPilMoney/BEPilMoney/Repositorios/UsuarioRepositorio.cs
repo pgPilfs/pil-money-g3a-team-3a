@@ -52,6 +52,8 @@ namespace BEPilMoney.Repositorios
         {
             string spName = "PilMoney_Api_AgregarUsuario";
             Cuenta cuenta = new Cuenta(obj.NombreUsuario);
+            //byte[] bytes;
+            //bytes = Encoding.UTF8.GetBytes(obj.FotoPerfil);
             List<SqlParameter> listParam = new List<SqlParameter>()
             {
                 new SqlParameter("@DNI", obj.DNI),
@@ -60,7 +62,7 @@ namespace BEPilMoney.Repositorios
                 new SqlParameter("@Email",obj.Email),
                 new SqlParameter("@NombreUsuario",obj.NombreUsuario),
                 new SqlParameter("@Clave",this.GetSHA256(obj.Clave)),
-                new SqlParameter("@FotoPerfil",obj.FotoPerfil),
+                new SqlParameter("@FotoPerfil", obj.FotoPerfil),
                 new SqlParameter("@FotoDNI",obj.FotoDNI),
                 new SqlParameter("@TipoCuenta", cuenta.TipoCuenta),
                 new SqlParameter("@Usuario", cuenta.Usuario),

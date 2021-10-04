@@ -40,7 +40,7 @@ CREATE TABLE Usuario
 	Email VARCHAR(40) NOT NULL,
 	NombreUsuario VARCHAR(20) NOT NULL,
 	Clave VARCHAR(100) NOT NULL,
-	FotoPerfil VARCHAR(50) NULL,
+	FotoPerfil VARBINARY(MAX) NULL,
 	FotoDNI VARCHAR(50) NULL,
 	CONSTRAINT PK_Usuario PRIMARY KEY (Id),
 	CONSTRAINT UQ_DNI UNIQUE (DNI),
@@ -122,7 +122,7 @@ CREATE PROCEDURE [dbo].[PilMoney_Api_AgregarUsuario]
 @Email VARCHAR(40),
 @NombreUsuario VARCHAR(20),
 @Clave VARCHAR(100),
-@FotoPerfil VARCHAR(255),
+@FotoPerfil VARBINARY(MAX),
 @FotoDNI VARCHAR(255),
 @TipoCuenta INT,
 @Usuario INT,
@@ -165,7 +165,7 @@ GO
 CREATE PROCEDURE [dbo].[PilMoney_Api_DetalleDeUsuario]
 @id INT
 AS
-SELECT Id, DNI, Nombre, Apellido, Email, NombreUsuario, Clave, FotoPerfil, FotoDNI
+SELECT Id, DNI, Nombre, Apellido, Email, NombreUsuario, Clave, CAST(FotoPerfil AS VARCHAR(MAX)) AS FotoPerfil, FotoDNI
 FROM [dbo].[Usuario]
 WHERE Id = @id
 GO
@@ -182,7 +182,7 @@ GO
 
 CREATE PROCEDURE [dbo].[PilMoney_Api_ListadoDeUsuarios]
 AS
-SELECT Id, DNI, Nombre, Apellido, Email, NombreUsuario, Clave, FotoPerfil, FotoDNI
+SELECT Id, DNI, Nombre, Apellido, Email, NombreUsuario, Clave, CAST(FotoPerfil AS VARCHAR(MAX)) AS FotoPerfil, FotoDNI
 FROM [dbo].[Usuario]
 ORDER BY [Id] DESC
 GO
@@ -195,7 +195,7 @@ CREATE PROCEDURE [dbo].[PilMoney_Api_ModificarUsuario]
 @Email VARCHAR(40),
 @NombreUsuario VARCHAR(20),
 @Clave VARCHAR(20),
-@FotoPerfil VARCHAR(255),
+@FotoPerfil VARBINARY(MAX),
 @FotoDNI VARCHAR(255)
 AS
 IF @DNI != '' AND @Nombre != '' AND @Apellido != '' AND @Email != '' AND @NombreUsuario != '' AND @Clave != '' 
@@ -326,8 +326,8 @@ INSERT INTO TipoMoneda (TipoMoneda) VALUES ('Dolares'),('BitCoin');
 INSERT INTO TipoTransacciones(Tipotransaccion) VALUES ('Transferencia'),('IngresoDinero');
 INSERT INTO TipoCuenta (TipoCuenta) VALUES ('Caja de ahorro en Pesos'), ('Caja de ahorro en Dolares'), ('Cuenta de Criptomonedas');
 INSERT INTO TipoServicio (TipoServicio) VALUES ('Luz'), ('Agua'),('Gas'), ('Internet'), ('Telefono'), ('Cable');
-INSERT INTO Usuario VALUES ('39735440', 'Juan Cruz', 'Pomares', 'juancruz.1600@gmail.com', 'JUANC1997', '846C18C02F7B07211100AEDF84ED26A4325851D34318D55AF240F0A3155027F4', null, null);
-INSERT INTO Usuario VALUES ('39229650', 'Lucia','Grosso', 'lugrosso.96@gmail.com', 'LUGROSSO96', '1A385F1837EE226328FE8E40C8EFCBC18AAF50DBE94B3C1A1B32619BEB95A719', null, null);
+INSERT INTO Usuario VALUES ('39735440', 'Juan Cruz', 'Pomares', 'juancruz.1600@gmail.com', 'JUANC1997', '846C18C02F7B07211100AEDF84ED26A4325851D34318D55AF240F0A3155027F4', NULL, NULL);
+INSERT INTO Usuario VALUES ('39229650', 'Lucia','Grosso', 'lugrosso.96@gmail.com', 'LUGROSSO96', '1A385F1837EE226328FE8E40C8EFCBC18AAF50DBE94B3C1A1B32619BEB95A719', NULL, NULL);
 INSERT INTO Cuenta VALUES (1, 1, 1, '0000125478558896325145', '23/08/2021', 'JUAN.C.POMARES', 15000);
 INSERT INTO Cuenta VALUES (1, 2, 1, '0000525696548552215485', '23/08/2021', 'LU.CIA.GROSSO', 100000);
 INSERT INTO Servicio VALUES (1, '03/09/2021', 'Septiembre', '0232521487999632502500', 4500);

@@ -68,12 +68,13 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <label for="formFile" class="form-label">Ingrese la foto del frente del Documento</label>
+                  <label for="formFile" class="form-label">Ingrese la foto de perfil</label>
                   <input class="form-control" type="file" id="imagen_1" (change)="fileEvent($event)">
                 </div>
                 <div class="mb-3">
-                  <label for="formFile" class="form-label">Ingrese la foto de atras del Documento</label>
-                  <input class="form-control" type="file" id="imagen_2" (change)="fileEvent2($event)">
+                  <label for="formFile" class="form-label"></label>
+                  <!-- <input class="form-control" type="file" id="imagen_2" (change)="fileEvent2($event)"> -->
+                  <img *ngIf="img_doc_2" [src]="img_doc_2" class="img-thumbnail" alt="imagen de perfil" width="200">
                 </div>
               <div class="mt-3">
                  <button type="submit" data-bs-toggle="modal" data-bs-target="#verificacionDoc" 

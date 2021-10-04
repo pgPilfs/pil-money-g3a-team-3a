@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { async } from '@angular/core/testing';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/Usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-registro',
@@ -23,7 +25,8 @@ export class RegistroComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private _UsuarioService : UsuarioService,
-    private _toastr: ToastrService    
+    private _toastr: ToastrService,
+    private sanitizer: DomSanitizer   
     ) { 
     this.formulario = this.fb.group({
       firstName: ['', Validators.required],
@@ -53,7 +56,7 @@ export class RegistroComponent implements OnInit {
       return;
     }
     const user = new Usuario(-1, this.f.dni.value, this.f.firstName.value, this.f.lastName.value,  this.f.mail.value,
-                    this.f.username.value, this.f.password.value, "", "");
+                    this.f.username.value, this.f.password.value, this.img_doc_2, "");
 
 
     //Envio de formulario al backend 
@@ -70,12 +73,34 @@ export class RegistroComponent implements OnInit {
   
   fileEvent(imgInput: Event){
     let file = (<HTMLInputElement>imgInput.target).files![0];
-    this.img_doc = file.name;
+    this.img_doc = file;
+    this.extraerBase64(this.img_doc).then((imagen: any) => {
+      this.img_doc_2 = imagen.base;
+      console.log(imagen);
+    });
+    //console.log(this.extraerBase64(this.img_doc));
   }
+
+  extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
+      const unsafeImg = window.URL.createObjectURL($event);
+      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+      const reader = new FileReader();
+      reader.readAsDataURL($event);
+      reader.onload = () => {
+        resolve({
+          base: reader.result
+        });
+      };
+      reader.onerror = error => {
+        resolve({
+          base: null
+        });
+      };  
+  });
 
   fileEvent2(imgInput: Event){
     let file = (<HTMLInputElement>imgInput.target).files![0];
-    this.img_doc_2 = file.name;
+    this.img_doc_2 = file;
   }
 
   subirArchivos(){
