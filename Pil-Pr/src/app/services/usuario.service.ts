@@ -16,6 +16,10 @@ export class UsuarioService {
     return this.http.post(this.myApiUrl + "Registrar", usuario);
   }
 
+  actualizarUsuario(usuario:Usuario):Observable<any>{
+    return this.http.post(this.myApiUrl + "Modificar", usuario);
+  }
+
   detalleUsuario(id:number):Observable<any>{
     return this.http.get(this.myApiUrl + "DetalleUsuario/" + id);
   }

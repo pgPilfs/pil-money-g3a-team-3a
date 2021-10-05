@@ -59,7 +59,6 @@ export class DashboardComponent implements OnInit {
     this._transServi.ListadoDeTransacciones(id).subscribe(datos => {
       this.listadoTrans = datos;
       this.cantidadMovimientos = this.listadoTrans.length;
-      console.log(this.cantidadMovimientos);
     }, error => {
         this._toastr.error(error, 'Error');
     });

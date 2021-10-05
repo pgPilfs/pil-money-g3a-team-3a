@@ -64,7 +64,6 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("Usuario", datos[0]);
         sessionStorage.setItem("Id_usuario", datos[1]);
         // //Redirecciona al dashboard
-        console.log(datos);
         this.router.navigate(['/dashboard']);
       }
     }, error => {

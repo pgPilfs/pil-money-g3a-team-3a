@@ -52,8 +52,8 @@ namespace BEPilMoney.Repositorios
         {
             string spName = "PilMoney_Api_AgregarUsuario";
             Cuenta cuenta = new Cuenta(obj.NombreUsuario);
-            //byte[] bytes;
-            //bytes = Encoding.UTF8.GetBytes(obj.FotoPerfil);
+            byte[] bytes;
+            bytes = Encoding.UTF8.GetBytes(obj.FotoPerfil);
             List<SqlParameter> listParam = new List<SqlParameter>()
             {
                 new SqlParameter("@DNI", obj.DNI),
@@ -62,7 +62,7 @@ namespace BEPilMoney.Repositorios
                 new SqlParameter("@Email",obj.Email),
                 new SqlParameter("@NombreUsuario",obj.NombreUsuario),
                 new SqlParameter("@Clave",this.GetSHA256(obj.Clave)),
-                new SqlParameter("@FotoPerfil", obj.FotoPerfil),
+                new SqlParameter("@FotoPerfil", bytes),
                 new SqlParameter("@FotoDNI",obj.FotoDNI),
                 new SqlParameter("@TipoCuenta", cuenta.TipoCuenta),
                 new SqlParameter("@Usuario", cuenta.Usuario),
@@ -81,16 +81,15 @@ namespace BEPilMoney.Repositorios
         public int Modificar(Usuario obj)
         {
             string spName = "[PilMoney_Api_ModificarUsuario]";
+            byte[] bytes;
+            bytes = Encoding.UTF8.GetBytes(obj.FotoPerfil);
             List<SqlParameter> listParam = new List<SqlParameter>()
             {
                 new SqlParameter("@Id", obj.Id),
-                new SqlParameter("@DNI", obj.DNI),
                 new SqlParameter("@Nombre",obj.Nombre),
                 new SqlParameter("@Apellido", obj.Apellido),
                 new SqlParameter("@Email",obj.Email),
-                new SqlParameter("@NombreUsuario",obj.NombreUsuario),
-                new SqlParameter("@Clave",this.GetSHA256(obj.Clave)),
-                new SqlParameter("@FotoPerfil",obj.FotoPerfil),
+                new SqlParameter("@FotoPerfil", bytes),
                 new SqlParameter("@FotoDNI",obj.FotoDNI),
             };
             DAO dao = new DAO();

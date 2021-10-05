@@ -189,23 +189,19 @@ GO
 
 CREATE PROCEDURE [dbo].[PilMoney_Api_ModificarUsuario]
 @Id INT,
-@DNI VARCHAR(8),
 @Nombre VARCHAR(20),
 @Apellido VARCHAR(20),
 @Email VARCHAR(40),
-@NombreUsuario VARCHAR(20),
-@Clave VARCHAR(20),
 @FotoPerfil VARBINARY(MAX),
 @FotoDNI VARCHAR(255)
 AS
-IF @DNI != '' AND @Nombre != '' AND @Apellido != '' AND @Email != '' AND @NombreUsuario != '' AND @Clave != '' 
+IF @Nombre != '' AND @Apellido != '' AND @Email != ''  AND @FotoPerfil != '' 
 BEGIN
 	UPDATE [dbo].[Usuario] 
-	SET DNI=@DNI, Nombre=@Nombre, Apellido=@Apellido, Email=@Email, 
-	NombreUsuario=@NombreUsuario, Clave=@Clave, FotoPerfil=@FotoPerfil, FotoDNI=@FotoDNI
+	SET Nombre=@Nombre, Apellido=@Apellido, Email=@Email, 
+	FotoPerfil=@FotoPerfil, FotoDNI=@FotoDNI
 	WHERE Id = @Id
 END
-GO
 
 CREATE PROCEDURE [dbo].[PilMoney_Api_Login]
 @Usuario VARCHAR(20),
