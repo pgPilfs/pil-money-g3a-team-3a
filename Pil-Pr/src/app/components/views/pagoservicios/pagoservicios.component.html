@@ -51,7 +51,7 @@
                       "
                     >
                       <h6>{{dato.TipoServicio}}</h6>
-                      <a href="#" class="btn btn-link float-right pagar">
+                      <a data-toggle="modal" data-target="#PagoServicio" class="btn btn-link float-right pagar" >
                         PAGAR</a
                       >
                     </li>
@@ -103,6 +103,93 @@
               </div>
             </div>
             </div>              
+          </div>
+          <!-- MODAL -->
+          <div class="modal" id="PagoServicio" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Pago de Servicios</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-12 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body">
+                          <form class="forms-sample" [formGroup]="form2" (ngSubmit)="PagoServicio()">
+                            <!-- Información -->
+                            <div class="form-group">
+                              <label><b>Servicio a pagar:</b>  Agua</label><br>
+                              <label><b>Fecha de vencimiento:</b>  20/10/2021</label>
+                            </div>
+                            <!--Select-->
+                              <div class="form-group">
+                                <label for="exampleFormControlSelect1">Cuenta de origen</label>                             
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text bg-gradient-primary text-white">CVU</span>
+                                  </div>
+                                  <select class="form-control form-control-lg" formControlName='CuentaDestino2'>
+                                    <option [ngValue]="id_cuenta">{{ cuenta[0]?.CVU }}</option>
+                                  </select>
+                                </div>
+                              </div>
+                            <!--Input-->
+                              <!-- <div class="form-group">
+                                <label>Cuenta de destino</label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text bg-gradient-primary text-white">CVU</span>
+                                  </div>
+                                  <input type="text" class="form-control" maxlength="22" formControlName="CuentaOrigen2"
+                                    aria-label="Amount (to the nearest dollar)" [ngClass]="{
+                                    'is-invalid': submitted2 && f2.CuentaDestino2.errors
+                                  }" required />
+                                  <div *ngIf="submitted2 && f2.CuentaDestino2.errors" class="invalid-feedback">
+                                    <div *ngIf="f2.CuentaDestino2.errors.required">
+                                      El CVU de destino es requerido
+                                    </div>
+                                    <div *ngIf="f2.CuentaDestino2.errors.minlength">
+                                      El CVU de origen debe tener 22 dígitos
+                                    </div>
+                                  </div>
+                                </div>
+                              </div> -->
+                            <!--Input-->
+                              <div class="form-group">
+                                <label>Monto a pagar</label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text bg-gradient-primary text-white">$</span>
+                                  </div>
+                                  <input type="text" class="form-control" formControlName="IngresoMonto2"
+                                    aria-label="Amount (to the nearest dollar)" [ngClass]="{
+                                    'is-invalid': submitted2 && f2.IngresoMonto2.errors
+                                  }" required />
+                                  <div *ngIf="submitted2 && f2.IngresoMonto2.errors" class="invalid-feedback">
+                                    <div *ngIf="f2.IngresoMonto2.errors.required">
+                                      Coloque el monto que desea transferir
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="float-right">
+                                <button type="button" class="btn btn-light mr-2" data-dismiss="modal">Cancelar</button>        
+                                <button type="submit" class="btn btn-gradient-primary">
+                                  Pagar
+                                </button>
+                              </div>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <!-- content-wrapper ends -->

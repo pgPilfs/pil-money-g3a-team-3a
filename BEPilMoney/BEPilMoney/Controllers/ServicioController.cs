@@ -35,5 +35,18 @@ namespace BEPilMoney.Controllers
             if (resp == 0) return BadRequest();
             return Ok(resp);
         }
+
+        [HttpPost]
+        [Route("api/DatosServicios")]
+        public IHttpActionResult GetTipoServicio([FromBody] String[] ServicioId)
+        {
+
+            int id = Convert.ToInt32(ServicioId[0].ToString());
+            if (id == 0) return BadRequest();
+            DataTable DatosServicios = _servicio.Detalle(id);
+            if (DatosServicios != null) this.BadRequest();
+            return this.Ok(DatosServicios);
+        }
+
     }
 }

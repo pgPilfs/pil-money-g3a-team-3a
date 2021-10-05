@@ -36,7 +36,15 @@ namespace BEPilMoney.Repositorios
 
         public DataTable Detalle(int id)
         {
-            throw new NotImplementedException();
+            DataTable listado = null;
+            string spName = "PilMoney_Api_DatosServicios";
+            List<SqlParameter> listParam = new List<SqlParameter>()
+            {
+                new SqlParameter("@id", id)
+            };
+            DAO dao = new DAO();
+            listado = dao.SelectDataBase(spName, listParam);
+            return listado;
         }
 
         public int Eliminar(int id)

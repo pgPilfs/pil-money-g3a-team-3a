@@ -202,6 +202,7 @@ BEGIN
 	FotoPerfil=@FotoPerfil, FotoDNI=@FotoDNI
 	WHERE Id = @Id
 END
+GO
 
 CREATE PROCEDURE [dbo].[PilMoney_Api_Login]
 @Usuario VARCHAR(20),
@@ -313,6 +314,14 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE [dbo].[PilMoney_Api_DatosServicios]
+@IdServicio int
+AS 
+SELECT Id, FechaVencimiento, CVUServicio, Monto
+FROM [dbo].[Servicio] 
+WHERE TipoServicio = @IdServicio
+GO
+
 
 /* DML */
 
@@ -321,7 +330,7 @@ INSERT INTO TipoMoneda (TipoMoneda) VALUES ('Pesos');
 INSERT INTO TipoMoneda (TipoMoneda) VALUES ('Dolares'),('BitCoin');
 INSERT INTO TipoTransacciones(Tipotransaccion) VALUES ('Transferencia'),('IngresoDinero');
 INSERT INTO TipoCuenta (TipoCuenta) VALUES ('Caja de ahorro en Pesos'), ('Caja de ahorro en Dolares'), ('Cuenta de Criptomonedas');
-INSERT INTO TipoServicio (TipoServicio) VALUES ('Luz'), ('Agua'),('Gas'), ('Internet'), ('Telefono'), ('Cable');
+INSERT INTO TipoServicio (TipoServicio) VALUES ('Luz'), ('Agua'),('Gas');
 INSERT INTO Usuario VALUES ('39735440', 'Juan Cruz', 'Pomares', 'juancruz.1600@gmail.com', 'JUANC1997', '846C18C02F7B07211100AEDF84ED26A4325851D34318D55AF240F0A3155027F4', NULL, NULL);
 INSERT INTO Usuario VALUES ('39229650', 'Lucia','Grosso', 'lugrosso.96@gmail.com', 'LUGROSSO96', '1A385F1837EE226328FE8E40C8EFCBC18AAF50DBE94B3C1A1B32619BEB95A719', NULL, NULL);
 INSERT INTO Cuenta VALUES (1, 1, 1, '0000125478558896325145', '23/08/2021', 'JUAN.C.POMARES', 15000);
