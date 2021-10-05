@@ -40,7 +40,7 @@ namespace BEPilMoney.Repositorios
             string spName = "PilMoney_Api_DatosServicios";
             List<SqlParameter> listParam = new List<SqlParameter>()
             {
-                new SqlParameter("@id", id)
+                new SqlParameter("@IdServicio", id)
             };
             DAO dao = new DAO();
             listado = dao.SelectDataBase(spName, listParam);

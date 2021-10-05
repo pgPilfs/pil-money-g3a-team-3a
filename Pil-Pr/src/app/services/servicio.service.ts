@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { PagoServicio } from 'src/app/models/PagoServicio';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,15 @@ export class ServicioService {
   ultimosMovimientos(id:any): Observable<any>{
     this.router = "UltimosMovimientos";
     return this.http.post(this.URLapi + this.router, id);
+  }
+
+  datosServicio(id:any): Observable<any>{
+    this.router = "DatosServicios";
+    return this.http.post(this.URLapi + this.router, id);
+  }
+
+  pagoServicio(pago:PagoServicio):Observable<any>{
+    this.router = "PagoServicio";
+    return this.http.post(this.URLapi + this.router, pago);
   }
 }

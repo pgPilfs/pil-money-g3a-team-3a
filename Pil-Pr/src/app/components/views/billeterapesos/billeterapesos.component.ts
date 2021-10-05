@@ -83,7 +83,7 @@ export class BilleterapesosComponent implements OnInit {
         this._toastr.success('Se registro correctamente', 'INGRESO DE DINERO REGISTRADO');
         setTimeout(() =>{
           window.location.reload();
-        }, 2000);
+        }, 1000);
     }, error => {
         this._toastr.error(error.message, 'Error');
     });
@@ -120,7 +120,7 @@ export class BilleterapesosComponent implements OnInit {
         this._toastr.success('Se registro correctamente', 'TRANSFERENCIA DE DINERO REGISTRADA');
         setTimeout(() =>{
           window.location.reload();
-        }, 2000);
+        }, 1000);
     }, error => {
         this._toastr.error(error.message, 'Error');
     });

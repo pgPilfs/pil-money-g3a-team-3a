@@ -110,7 +110,7 @@ CREATE TABLE PagoServicios
 	FechaPago DATETIME NOT NULL,
 	Monto DECIMAL(18,2) NOT NULL,
 	CONSTRAINT PK_PagoServicio PRIMARY KEY (Id),
-	CONSTRAINT FK_Pago_CVUServicio FOREIGN KEY(CVUServicio) REFERENCES Servicio(CVUServicio),
+	CONSTRAINT FK_PagoServicio_Servicio FOREIGN KEY(Servicio) REFERENCES Servicio(Id),
 	CONSTRAINT FK_PagoServicio_Cuenta FOREIGN KEY (CuentaOrigen) REFERENCES Cuenta(Id)
 )
 GO
@@ -236,7 +236,7 @@ GO
 
 CREATE PROCEDURE [dbo].[PilMoney_Api_ListadoDeServicios]
 AS 
-SELECT TipoServicio 
+SELECT Id, TipoServicio 
 FROM [dbo].[TipoServicio]
 ORDER BY TipoServicio;
 GO
@@ -317,9 +317,10 @@ GO
 CREATE PROCEDURE [dbo].[PilMoney_Api_DatosServicios]
 @IdServicio int
 AS 
-SELECT Id, FechaVencimiento, CVUServicio, Monto
-FROM [dbo].[Servicio] 
-WHERE TipoServicio = @IdServicio
+SELECT s.Id, ts.TipoServicio, s.FechaVencimiento, s.CVUServicio, s.Monto
+FROM [dbo].[Servicio] s
+INNER JOIN [dbo].[TipoServicio] ts ON s.TipoServicio = ts.Id
+WHERE s.TipoServicio = @IdServicio
 GO
 
 
