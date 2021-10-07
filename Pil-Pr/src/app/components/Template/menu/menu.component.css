@@ -1,0 +1,14 @@
+.menu-principal{
+    margin-right: 300px;
+}
+
+.setting-user-hover:hover{
+    background-color: black !important;
+}
+
+@media (max-width: 720px) {
+    .menu-principal{
+        display: block;
+        margin-right: 0px;
+    }
+}

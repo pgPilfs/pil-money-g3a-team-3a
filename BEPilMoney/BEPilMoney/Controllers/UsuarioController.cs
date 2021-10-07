@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 using BEPilMoney.Models;
 using BEPilMoney.Repositorios;
@@ -11,24 +13,15 @@ using BEPilMoney.Repositorios;
 
 namespace BEPilMoney.Controllers
 {
+    [AllowAnonymous]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+
     public class UsuarioController : BaseController
     {
         private UsuarioRepositorio _usuario = new UsuarioRepositorio();
 
-        [HttpPost]
-        [ActionName("Login")]
-        public IHttpActionResult Login([FromBody] Usuario usuario)
-        {
-            string resp = string.Empty;
-
-            if (usuario.NombreUsuario != string.Empty && usuario.Clave != string.Empty) 
-                resp = this.InicioSesion(usuario.NombreUsuario, usuario.Clave);
-            else return BadRequest();
-            return Ok(resp);
-        }
-
         [HttpGet]
-        [ActionName("Listado")]
+        [Route("api/ListadoUsuario")]
         public IHttpActionResult GetUsuarios()
         {
             var listadoUsuario = this._usuario.Listado();
@@ -37,7 +30,7 @@ namespace BEPilMoney.Controllers
         }
 
         [HttpGet]
-        [ActionName("Detalle")]
+        [Route("api/DetalleUsuario/{id:int}")]
         public IHttpActionResult GetUsuario(int id)
         {
             id = (id == 0) ? 0 : id;
@@ -47,37 +40,28 @@ namespace BEPilMoney.Controllers
         }
 
         [HttpPost]
-        [ActionName("Registrar")]
+        [Route("api/Registrar")]
         public IHttpActionResult PostUsuario([FromBody] Usuario usuario)
         {
-            string token = usuario.autenticacion.Token;
-            int estado = usuario.autenticacion.Estado;
-            if (this.ValidarToken(token, estado) == false)
-                return BadRequest();
             var resp = this._usuario.Agregar(usuario);
             if (resp == 0) return BadRequest();
             return Ok(resp);
         }
 
         [HttpPost]
-        [ActionName("Modificar")]
+        [Route("api/Modificar")]
         public IHttpActionResult PutUsuario([FromBody] Usuario usuario)
         {
-            string token = usuario.autenticacion.Token;
-            int estado = usuario.autenticacion.Estado;
-            if(this.ValidarToken(token, estado) == false)
-                return BadRequest();
             var resp = this._usuario.Modificar(usuario);
             if (resp == 0) return BadRequest();
             return Ok(resp);
         }
 
-        [HttpDelete]
-        [ActionName("Eliminar")]
-        public IHttpActionResult DeleteUsuario(int id)
+        [HttpPost]
+        [Route("api/Eliminar")]
+        public IHttpActionResult DeleteUsuario([FromBody] Usuario usuario)
         {
-            id = (id == 0) ? 0 : id;
-            var resp = this._usuario.Eliminar(id);
+            var resp = this._usuario.Eliminar(usuario.Id);
             if (resp == 0) return BadRequest();
             return Ok(resp);
         }

@@ -1,0 +1,15 @@
+.margenes {
+    margin-top: 3.5rem;
+ }
+
+ .texto-peso{
+     font-size: 2em;
+ }
+
+ .opacity{
+     opacity: .5;
+ }
+
+ .card-footer{
+     background-color: white !important;
+ }

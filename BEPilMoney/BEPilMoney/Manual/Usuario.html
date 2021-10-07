@@ -1,56 +1,73 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>API - Prubebas</title>
-	<link rel="stylesheet" href="../estilo.css" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API - Prubebas</title>
+    <link rel="stylesheet" href="../estilo.css" type="text/css">
 </head>
 <body>
-	<div class="container">
-		<h1>Manual de Uso de la Api PilMoney</h1>
-		<div class="divbody">
-			<h2>Usuario</h2>
-			<hr />
-			<h3>login</h3>
-			<code>
-				POST URL: -> /login
-				<br>
-				{
-				<br>
-				"usuario" :"",  -> REQUERIDO
-				<br>
-				"password": "" -> REQUERIDO
-				<br>
-				}
-			</code>
-			<h3>Consultas</h3>
-			<code>
-				GET URL: -> /Usuario
-				<br>
-				GET URL: -> /Usuario/id
-			</code>
-			<h3>Agregar Usuario</h3>
-			POST URL: -> /Usuario
-			<code>
-				"DNI": "" -> REQUERIDO,
-				<br>
-				"Nombre": "" -> REQUERIDO,
-				<br>
-				"Apellido": "" -> REQUERIDO,
-				<br>
-				"Email":  "" -> REQUERIDO,
-				<br>
-				"NombreUsuario" : "" -> REQUERIDO,
-				<br>
-				"Clave" : "" -> REQUERIDO,
-				<br>
-				"FotoPerfil" : "",
-				<br>
-				"FotoDNI" : ""
-			</code>
-		</div>
-	</div>
-
+    <div class="container">
+        <h1>Manual de Uso de la Api PilMoney</h1>
+        <div class="divbody">
+            <h2>Usuario</h2>
+            <hr />
+            <h3>Consultas</h3>
+            <code>
+                GET URL: -> /Usuario/Listado
+                <br>
+                GET URL: -> /Usuario/Detalle/id
+            </code>
+            <h3>Agregar Usuario</h3>
+            POST URL: -> /Usuario/Registrar
+            <code>
+                "DNI": "" -> REQUERIDO,
+                <br>
+                "Nombre": "" -> REQUERIDO,
+                <br>
+                "Apellido": "" -> REQUERIDO,
+                <br>
+                "Email":  "" -> REQUERIDO,
+                <br>
+                "NombreUsuario" : "" -> REQUERIDO,
+                <br>
+                "Clave" : "" -> REQUERIDO,
+                <br>
+                "FotoPerfil" : "",
+                <br>
+                "FotoDNI" : ""
+            </code>
+            <h3>Modificar Usuario</h3>
+            POST URL: -> /Usuario/Modificar
+            <code>
+                "ID": "" -> REQUERIDO,
+                <br>
+                "DNI": "" -> REQUERIDO,
+                <br>
+                "Nombre": "" -> REQUERIDO,
+                <br>
+                "Apellido": "" -> REQUERIDO,
+                <br>
+                "Email":  "" -> REQUERIDO,
+                <br>
+                "NombreUsuario" : "" -> REQUERIDO,
+                <br>
+                "Clave" : "" -> REQUERIDO,
+                <br>
+                "FotoPerfil" : "",
+                <br>
+                "FotoDNI" : ""
+                <br>
+                "Autenticacion" : "" -> {"Token": "" -> REQUERIDO},
+            </code>
+            <h3>Eliminar Usuario</h3>
+            POST URL: -> /Usuario/Eliminar/id
+            <code>
+                "ID" : "" -> REQUERIDO,
+                <br>
+                "Autenticacion" : "" -> {"Token": "" -> REQUERIDO},
+            </code>
+        </div>
+    </div>
 </body>
 </html>

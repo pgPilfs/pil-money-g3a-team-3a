@@ -38,8 +38,7 @@ namespace BEPilMoney.AccesoADatos
         #region Metodos Accesso s Datos
         public void Conectar()
         {
-            this._cnn = new SqlConnection(this._cadenaConexion);
-            if(this._cnn.State == ConnectionState.Closed)
+            using (this._cnn = new SqlConnection(this._cadenaConexion))
             {
                 using (this._cmd = new SqlCommand())
                 {
@@ -50,44 +49,39 @@ namespace BEPilMoney.AccesoADatos
                     this._cmd.CommandType = CommandType.StoredProcedure;
                 }
             }
-            else
-            {
-                this._dt = new DataTable();
-                this._cmd.Connection = _cnn;
-                this._cmd.CommandText = _spName;
-                this._cmd.CommandType = CommandType.StoredProcedure;
-            }
+            
         }
         public void Desconectar()
         {
-            if(this._cnn.State == ConnectionState.Open)
+            if (this._cnn.State == ConnectionState.Open)
             {
+
                 this._cnn.Close();
-                this._cmd.Dispose();
-                this._cnn.Dispose();
             }
+
         }
         #endregion
 
         #region Metodos CRUD SQL SERVER
         public DataTable SelectDataBase(string spName, List<SqlParameter> parametros = null)
         {
+            SqlConnection cnn = new SqlConnection(this._cadenaConexion);
+            SqlCommand cmd;
+            DataTable dt;
             try
             {
-                this._spName = spName;
-                this.Conectar();
-                if (parametros != null) this._cmd.Parameters.AddRange(parametros.ToArray());
-                this._dt.Load(this._cmd.ExecuteReader());
+                cnn.Open();
+                cmd = new SqlCommand(spName, cnn);
+                dt = new DataTable();
+                if (parametros != null) cmd.Parameters.AddRange(parametros.ToArray());
+                dt.Load(cmd.ExecuteReader());
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            finally
-            {
-              this.Desconectar();
-            }
-            return this._dt;
+            cnn.Close();
+            return dt;
         }
         public int ExecuteSQLSEVER(string spName, List<SqlParameter> parametros)
         {
@@ -108,6 +102,10 @@ namespace BEPilMoney.AccesoADatos
             }
             return this._filasAfecctadas;
         }
+        #endregion
+
+        #region Helpers
+
         #endregion
     }
 }
