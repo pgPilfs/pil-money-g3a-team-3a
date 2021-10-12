@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   ultimos:any[] = [];
   listadoTrans:Transacciones[] = [];
   listadoFinal:any[] = [];
-  cantidadMovimientos: any;
+  cantidadMovimientos: number = 0;
 
   constructor(
     private router: Router,
@@ -49,16 +49,19 @@ export class DashboardComponent implements OnInit {
     this._servicio.ultimosMovimientos(id).subscribe(datosUltimoMovimiento => {
       this.ultimos = datosUltimoMovimiento;
       this.listadoFinal.push(this.ultimos);
+      this.cantidadMovimientos += this.ultimos.length;
   },error =>{
     console.log(error);
   });
 }
 
+
+
   ListadoDeTransacciones(){
     let id:any = [sessionStorage.getItem("Id_usuario")];
     this._transServi.ListadoDeTransacciones(id).subscribe(datos => {
       this.listadoTrans = datos;
-      this.cantidadMovimientos = this.listadoTrans.length;
+      this.cantidadMovimientos += this.listadoTrans.length;
     }, error => {
         this._toastr.error(error, 'Error');
     });

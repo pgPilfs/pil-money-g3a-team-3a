@@ -4,7 +4,7 @@ export class PagoServicio {
         public Servicio:number,
         public CuentaOrigen:number,
         public CVUServicio:string,
-        public FechaPago:string,
+        public Fecha:string,
         public Monto:number,
     ){}
 }

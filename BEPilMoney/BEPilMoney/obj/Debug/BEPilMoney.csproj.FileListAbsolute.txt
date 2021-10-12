@@ -284,7 +284,6 @@ C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilM
 C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\System.Web.Http.WebHost.xml
 C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\obj\Debug\BEPilMoney.csproj.CoreCompileInputs.cache
-C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\obj\Debug\BEPilMoney.csproj.CopyComplete
 C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\obj\Debug\BEPilMoney.dll
 C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\obj\Debug\BEPilMoney.pdb
 C:\Users\Daniel\Desktop\MoneyPilProyecto\pil-money-g3a-team-3a\BEPilMoney\BEPilMoney\obj\Debug\BEPilMoney.csproj.AssemblyReference.cache

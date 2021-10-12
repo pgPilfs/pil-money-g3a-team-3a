@@ -72,9 +72,9 @@ export class PagoserviciosComponent implements OnInit {
   datosServicio(){
     this._servicio.datosServicio([this.id_servicio]).subscribe(datos => {
       this.servicio = datos;
-  },error =>{
-    console.log(error);
-  });
+    },error =>{
+      console.log(error);
+    });
   }
 
   ultimosMovimientos(){

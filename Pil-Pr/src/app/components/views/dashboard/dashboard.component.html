@@ -96,7 +96,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="card">
               <div
                 class="card-header"
@@ -124,6 +124,39 @@
                   <span>{{item.TipoTransaccion}}</span>
                   <span>{{item.FechaTransaccion | date:'dd-MM-yyyy'}}</span>
                   <span>{{ item.Monto | currency:'AR':'$':'1.2-2'}}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div
+                class="card-header"
+                style="background: linear-gradient(to right, #494889, #292874)"
+              >
+                <div>
+                  <h4 class="titulo-card-movimientos float-left">
+                    Ultimos Pagos de Servicios en el mes
+                  </h4>
+                  <!-- <a href="#" class="btn btn-link float-right ver-mas">
+                    Ver mas</a -->
+                  >
+                </div>
+              </div>
+              <div class="card-body">
+                <ul class="list-group list-group-flush">
+                  <li *ngFor="let dato of ultimos"
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-center
+                    "
+                  >
+                    {{dato.TipoServicio}}
+                    <span>{{dato.Fecha}}</span>
+                    <span>-{{ dato.Monto | currency:'AR':'$':'1.2-2'}}</span>
                   </li>
                 </ul>
               </div>
